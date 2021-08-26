@@ -1,8 +1,8 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-19 14:02:29
+ * @LastEditTime: 2021-08-25 15:48:25
  * @Description: 
- * @FilePath: /test/src/components/apps/Adm_loading.vue
+ * @FilePath: /publishTest/src/components/apps/Adm_loading.vue
 -->
 <template>
     <div>Loading</div>
@@ -10,12 +10,12 @@
 <script lang="ts" setup>
 
 // import { DragWindow } from "../components/window/libs/DragWindow";
-// import AdmVue from "./Adm.vue";
+import AdmVue from "./Adm.vue";
 // import ElementPlus from 'element-plus';
 import type { PageItem } from 'vue3-win10'
-import { WindowIPC } from 'vue3-win10'
+import { WindowIPC,DragWindow } from 'vue3-win10'
 import { defineComponent, DefineComponent, PropType } from "vue"
- 
+import beatico from "../../assets/beat.ico"
 defineComponent
 let props = defineProps({
     ctx: {
@@ -26,7 +26,7 @@ setTimeout(() => {
     if (props.ctx?.id) {
         WindowIPC.getInstance().destoryWindow(props.ctx?.id)
     }
-    // new DragWindow(0, 0, 'Admin后台管理', 300, 400, { content: AdmVue},[ElementPlus])
+    new DragWindow(0, 0, 'Admin后台管理',beatico, 300, 400, { content: AdmVue})
 }, 1000)
 
 

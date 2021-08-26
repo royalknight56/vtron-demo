@@ -1,8 +1,8 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-19 10:10:48
+ * @LastEditTime: 2021-08-25 16:42:57
  * @Description: 
- * @FilePath: /test/src/components/apps/Test1.vue
+ * @FilePath: /publishTest/src/components/apps/Test1.vue
 -->
 <template>
     <div class="uper">
@@ -18,7 +18,8 @@
     <div class="desk_outer">
         <div class="desk_item" v-for="item in currentList" @dblclick="openFolder(item)">
             <div class="item_img">
-                <img width="50" :src="folderimg" />
+                <svg t="1629880946543" class="icon" viewBox="0 0 1126 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11619" width="50" height="50"><path d="M1076.875776 998.4H49.803776A49.152 49.152 0 0 1 0.139776 950.016V148.736a49.408 49.408 0 0 1 49.664-49.152h1027.072A49.408 49.408 0 0 1 1126.539776 148.736v801.28A49.408 49.408 0 0 1 1076.875776 998.4z" fill="#FFE9B8" p-id="11620"></path><path d="M563.339776 336.64H0.139776V51.2a47.616 47.616 0 0 1 45.056-51.2H435.339776a51.2 51.2 0 0 1 47.616 39.424z" fill="#FFC112" p-id="11621"></path><path d="M1081.483776 1024H45.195776A47.616 47.616 0 0 1 0.139776 972.8V250.368a47.616 47.616 0 0 1 45.056-49.92h1036.288A47.616 47.616 0 0 1 1126.539776 250.368v723.712A47.872 47.872 0 0 1 1081.483776 1024z" fill="#FFD741" p-id="11622"></path></svg>
+                <!-- <img width="50" :src="folderimg" /> -->
             </div>
             <div class="item_name">{{ item.name }}</div>
         </div>

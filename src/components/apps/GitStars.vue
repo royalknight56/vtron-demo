@@ -1,8 +1,8 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-19 10:06:41
+ * @LastEditTime: 2021-08-26 09:32:04
  * @Description: 
- * @FilePath: /test/src/components/apps/GitStars.vue
+ * @FilePath: /publishTest/src/components/apps/GitStars.vue
 -->
 <template>
     <div>Loading</div>
@@ -19,11 +19,13 @@ let props = defineProps({
     }
 })
 setTimeout(() => {
+    window.open('https://github.com/royalknight56/vue-windows10')
+})
+setTimeout(() => {
     if (props.ctx?.id) {
         WindowIPC.getInstance().destoryWindow(props.ctx?.id)
     }
-    window.open('https://github.com/royalknight56/vue-windows10')
-})
+},1000)
 
 
 </script>

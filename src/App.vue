@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-19 15:52:09
+ * @LastEditTime: 2021-08-26 09:32:24
  * @Description: 
  * @FilePath: /publishTest/src/App.vue
 -->
@@ -25,7 +25,9 @@ import { AddToDesktop, ClearDesktop } from "vue3-win10";
 
 import computer from "./assets/computer.ico"
 import beat from "./assets/beat.ico"
-import brow from "./assets/浏览器.png"
+// import brow from "./assets/浏览器.png"
+import brower from "./assets/brow.png"
+
 import term from "./assets/term.ico"
 import vscode from "./assets/vscode.png"
 // import img1 from "../assets/term.ico"
@@ -59,14 +61,14 @@ AddToDesktop({
   name: '版本信息',
   apptemp: 'Test2',
   icon: beat,
-  width: 100,
+  width: 170,
   height: 100,
   tmp: Test2
 });
 AddToDesktop({
   name: '浏览器',
   apptemp: 'Test3',
-  icon: brow,
+  icon: brower,
   width: 600,
   height: 500,
   tmp: Test3
@@ -100,8 +102,8 @@ AddToDesktop({
   name: '点个star',
   apptemp: "GitStars",
   icon: GitHub,
-  width: 300,
-  height: 400,
+  width: 170,
+  height: 100,
   tmp: GitStars
 });
 
@@ -110,6 +112,10 @@ AddToDesktop({
 </script>
 
 <style>
+body{
+  margin: 0;
+  padding: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -122,7 +128,7 @@ AddToDesktop({
 </style>
 <style scoped>
 .outer {
-  width: 80vw;
-  height: 90vh;
+  width: 100vw;
+  height: 100vh;
 }
 </style>

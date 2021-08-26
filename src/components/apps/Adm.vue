@@ -1,18 +1,15 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-19 15:35:15
+ * @LastEditTime: 2021-08-25 15:55:59
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/Adm.vue
 -->
 <template>
     <div>
-        {{msg}}
-        <!-- <button >确定</button> -->
-        <el-radio v-model="radio1" label="1">备选项1</el-radio>
-        <el-radio v-model="radio1" label="2">备选项2</el-radio><br>
-        <el-checkbox v-model="radio2">备选项</el-checkbox><br>
-        <el-input-number v-model="radio3" :min="1" :max="10" label="描述文字"></el-input-number><br>
-        <el-button @click="submit" type="success">确定</el-button>
+        此页面用于显示窗口间通信能力：<br>
+        下面的结果是对话框选择后的结果：<br>
+        {{msg}}<br> 
+        <button @click="submit">确定</button>
     </div>
 </template>
 <script lang="ts" setup>
@@ -21,6 +18,7 @@ import { DragWindow } from 'vue3-win10';
 import askDialogVue from "./askDialog.vue";
 // import ElementPlus from 'element-plus';
 import { WindowIPC } from 'vue3-win10';
+import beatico from "../../assets/beat.ico"
 
 let radio1 = ref(1)
 let radio2 = ref(1)
@@ -33,7 +31,7 @@ WindowIPC.getInstance().on('testEvent',(arg:string)=>{
 })
 function submit() {
     // new DragWindow(0,0,'确定提交？',300,400,{content:askDialogVue,use:[ElementPlus]})
-    new DragWindow(0,0,'确定提交？',300,400,{content:askDialogVue})
+    new DragWindow(0,0,'确定提交？',beatico,300,400,{content:askDialogVue})
 
 }
 </script>
