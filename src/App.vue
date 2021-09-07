@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-26 09:32:24
+ * @LastEditTime: 2021-08-27 09:40:13
  * @Description: 
  * @FilePath: /publishTest/src/App.vue
 -->
@@ -32,6 +32,9 @@ import term from "./assets/term.ico"
 import vscode from "./assets/vscode.png"
 // import img1 from "../assets/term.ico"
 import GitHub from "./assets/GitHub.png"
+import backicon from "./assets/back.png"
+import signalicon from "./assets/signal.png"
+
 
 
 
@@ -44,9 +47,9 @@ import app_console from "./components/apps/app_console.vue"
 import app_vscode from "./components/apps/app_vscode.vue"
 import Adm_loading from "./components/apps/Adm_loading.vue"
 import GitStars from "./components/apps/GitStars.vue"
+import GotoAdminVue from './components/apps/GotoAdmin.vue';
 
-// console.log(AddToDesktop)
-setTimeout(() => { }, 3000);
+
 ClearDesktop();
 AddToDesktop({
   name: '我的电脑',
@@ -91,12 +94,20 @@ AddToDesktop({
   tmp: app_vscode
 });
 AddToDesktop({
-  name: '后台管理',
+  name: '窗口通信',
   apptemp: "Adm_loading",
-  icon: term,
-  width: 300,
-  height: 400,
+  icon: signalicon,
+  width: 170,
+  height: 100,
   tmp: Adm_loading
+});
+AddToDesktop({
+  name: '前往后台管理样例',
+  apptemp: "Adm_loading",
+  icon: backicon,
+  width: 170,
+  height: 100,
+  tmp: GotoAdminVue
 });
 AddToDesktop({
   name: '点个star',

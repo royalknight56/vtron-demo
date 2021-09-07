@@ -1,60 +1,63 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-19 10:06:23
+ * @LastEditTime: 2021-09-07 19:34:13
  * @Description: 
- * @FilePath: /test/src/components/apps/app_console.vue
+ * @FilePath: /publishTest/src/components/apps/app_console.vue
 -->
 <template>
-    <div class="consoleline" ref="inputref" @keydown="onkeydown">
-        <div class="oneline">
-            <span class="selfarea">Hugesoft [version 0.00.10000.100]</span>
-        </div>
-        <div class="oneline">
-            <span class="selfarea">(c) 2021 Hugesoft .Inc All rights reserved</span>
-        </div>
-        <div class="oneline">
-            <span class="selfarea">&nbsp;</span>
-        </div>
-        <div class="oneline" v-for="(item,index) in linelist">
-            <span class="selfarea leftarea">C:\User\Administrator></span>
-            <textarea
-                maxlength="50"
-                v-if="index == linelist.length - 1"
-                v-model="inputvalue"
-                class="t2"
-                spellcheck="false"
-            ></textarea>
-            <span v-else class="selfarea rightarea">{{ item.text }}</span>
-            <!-- <textarea readonly v-else class="t2" spellcheck="false" :value="item.text"></textarea> -->
-        </div>
+    <div class="consoleline" ref="inputref">
+        <div id="terminal"></div>
     </div>
 </template>
-<script lang="ts" setup>import { reactive, ref } from "vue";
+<script lang="ts" setup>
+import { reactive, ref } from "vue";
 import { nextTick, onMounted } from "vue";
-import { consoleIPC } from 'vue3-win10'
-//Hugesoft [version 0.00.10000.100\n(c) 2021 Hugesoft .Inc All rights reserved\n\n
-let inputvalue = ref('')
-let text = ref({ text: '' })
-let linelist: Array<{ text: string }> = consoleIPC.getInstance().linelist
-// linelist.push({text:''})
-function onkeydown(e: KeyboardEvent) {
-    if (e.code == 'Enter') {
-        consoleIPC.getInstance().input(inputvalue.value)
-        // linelist[linelist.length-1].text=inputvalue.value;
-        // linelist.push({text:""});
-        inputvalue.value = ""
-        e.preventDefault();
 
-        nextTick(() => {
-            ((inputref.value as HTMLElement).lastElementChild?.lastElementChild as HTMLInputElement).focus();
-        })
+import { Terminal } from 'xterm';
 
+var term = new Terminal({
+    rendererType: "canvas", //渲染类型
+    rows: 35, //行数
+    convertEol: true, //启用时，光标将设置为下一行的开头
+    scrollback: 10, //终端中的回滚量
+    disableStdin: false, //是否应禁用输入
+    cursorBlink: true, //光标闪烁
+});
+term.onKey(e => {
+    const printable = !e.domEvent.altKey && !e.domEvent.ctrlKey && !e.domEvent.metaKey;
+
+    if (e.domEvent.keyCode === 13) {
+        prompt(term);
+    } else if (e.domEvent.keyCode === 8) {
+        // Do not delete the prompt
+        term.write('\b \b');
+        // if (term._core.buffer.x > 2) {
+        //     term.write('\b \b');
+        // }
+    } else if (printable) {
+        term.write(e.key);
     }
-}
+    // console.log(e.domEvent.keyCode)
+});
 
-let inputref = ref();
+function prompt(term: any) {
+    term.write('\r\nC:\\User\\Administrator> ');
+}
+//  term.onData((val) => {
+//      term.write(val);
+//    }); 
+
+
+//Hugesoft [version 0.00.10000.100\n(c) 2021 Hugesoft .Inc All rights reserved\n\n
+
 onMounted(() => {
-    consoleIPC.getInstance().openConsole()
+    let termdom = document.getElementById('terminal');
+    if (termdom) {
+        term.open(termdom);
+        term.write('Hugesoft [version 0.00.10000.100\r\n(c) 2021 Hugesoft .Inc All rights reserved\r\n')
+        term.write('\r\nC:\\User\\Administrator> ');
+        // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
+    }
 })
 </script>
 <style scoped>

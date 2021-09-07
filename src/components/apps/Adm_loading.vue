@@ -1,17 +1,17 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-25 15:48:25
+ * @LastEditTime: 2021-08-26 17:29:20
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/Adm_loading.vue
 -->
 <template>
-    <div>Loading</div>
+    <div>载入中...</div>
 </template>
 <script lang="ts" setup>
 
 // import { DragWindow } from "../components/window/libs/DragWindow";
 import AdmVue from "./Adm.vue";
-// import ElementPlus from 'element-plus';
+import ElementPlus from 'element-plus';
 import type { PageItem } from 'vue3-win10'
 import { WindowIPC,DragWindow } from 'vue3-win10'
 import { defineComponent, DefineComponent, PropType } from "vue"
@@ -26,7 +26,7 @@ setTimeout(() => {
     if (props.ctx?.id) {
         WindowIPC.getInstance().destoryWindow(props.ctx?.id)
     }
-    new DragWindow(0, 0, 'Admin后台管理',beatico, 300, 400, { content: AdmVue})
+    new DragWindow(0, 0, '窗口通信',beatico, 300, 400, { content: AdmVue},[ElementPlus])
 }, 1000)
 
 
