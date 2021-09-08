@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-07 19:34:13
+ * @LastEditTime: 2021-09-08 18:39:46
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/app_console.vue
 -->
@@ -15,6 +15,7 @@ import { nextTick, onMounted } from "vue";
 
 import { Terminal } from 'xterm';
 
+let beforeString = 'C:\\User\\Administrator>'
 var term = new Terminal({
     rendererType: "canvas", //渲染类型
     rows: 35, //行数
@@ -30,18 +31,25 @@ term.onKey(e => {
         prompt(term);
     } else if (e.domEvent.keyCode === 8) {
         // Do not delete the prompt
-        term.write('\b \b');
-        // if (term._core.buffer.x > 2) {
-        //     term.write('\b \b');
-        // }
-    } else if (printable) {
+        // term.write('\b \b');
+        
+        if (term._core.buffer.x > beforeString.length) {
+            term.write('\b \b');
+        }
+    } else if (e.domEvent.keyCode === 40||e.domEvent.keyCode === 37||e.domEvent.keyCode === 39) {
+
+    }else if (e.domEvent.keyCode === 38) {
+
+    }
+    else if (printable) {
         term.write(e.key);
     }
-    // console.log(e.domEvent.keyCode)
+    console.log(e.domEvent.keyCode)
 });
 
 function prompt(term: any) {
-    term.write('\r\nC:\\User\\Administrator> ');
+    term.write('\r\n');
+    term.write(beforeString);
 }
 //  term.onData((val) => {
 //      term.write(val);
@@ -55,7 +63,8 @@ onMounted(() => {
     if (termdom) {
         term.open(termdom);
         term.write('Hugesoft [version 0.00.10000.100\r\n(c) 2021 Hugesoft .Inc All rights reserved\r\n')
-        term.write('\r\nC:\\User\\Administrator> ');
+        term.write('\r\n');
+        term.write(beforeString);
         // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
     }
 })
