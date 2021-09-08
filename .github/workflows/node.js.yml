@@ -36,3 +36,7 @@ jobs:
         REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
         REMOTE_USER: ${{ secrets.DEPLOY_USER }}
         TARGET: ${{ secrets.DEPLOY_REMOTE_DIR }}
+    - name: Webhook
+      uses: ybrin/secure-actions-webhook@0.1.2
+      env:
+        REQUEST_URI: ${{ secrets.REQUEST_URI }}${{ github.workflow }}:${{ job.status }}
