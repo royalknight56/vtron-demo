@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-27 09:40:13
+ * @LastEditTime: 2021-09-08 15:13:50
  * @Description: 
  * @FilePath: /publishTest/src/App.vue
 -->
@@ -34,6 +34,8 @@ import vscode from "./assets/vscode.png"
 import GitHub from "./assets/GitHub.png"
 import backicon from "./assets/back.png"
 import signalicon from "./assets/signal.png"
+import winicon from "./assets/win.png"
+
 
 
 
@@ -48,6 +50,8 @@ import app_vscode from "./components/apps/app_vscode.vue"
 import Adm_loading from "./components/apps/Adm_loading.vue"
 import GitStars from "./components/apps/GitStars.vue"
 import GotoAdminVue from './components/apps/GotoAdmin.vue';
+import GotoReadMe from './components/apps/GotoReadMe.vue';
+
 
 
 ClearDesktop();
@@ -101,14 +105,14 @@ AddToDesktop({
   height: 100,
   tmp: Adm_loading
 });
-AddToDesktop({
-  name: '前往后台管理样例',
-  apptemp: "Adm_loading",
-  icon: backicon,
-  width: 170,
-  height: 100,
-  tmp: GotoAdminVue
-});
+// AddToDesktop({
+//   name: '前往后台管理样例',
+//   apptemp: "Adm_loading",
+//   icon: backicon,
+//   width: 170,
+//   height: 100,
+//   tmp: GotoAdminVue
+// });
 AddToDesktop({
   name: '点个star',
   apptemp: "GitStars",
@@ -117,7 +121,14 @@ AddToDesktop({
   height: 100,
   tmp: GitStars
 });
-
+AddToDesktop({
+  name: '文档',
+  apptemp: "winicon",
+  icon: winicon,
+  width: 170,
+  height: 100,
+  tmp: GotoReadMe
+});
 
 
 </script>
