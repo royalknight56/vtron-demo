@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-08 18:39:46
+ * @LastEditTime: 2021-09-08 19:13:55
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/app_console.vue
 -->
@@ -16,36 +16,7 @@ import { nextTick, onMounted } from "vue";
 import { Terminal } from 'xterm';
 
 let beforeString = 'C:\\User\\Administrator>'
-var term = new Terminal({
-    rendererType: "canvas", //渲染类型
-    rows: 35, //行数
-    convertEol: true, //启用时，光标将设置为下一行的开头
-    scrollback: 10, //终端中的回滚量
-    disableStdin: false, //是否应禁用输入
-    cursorBlink: true, //光标闪烁
-});
-term.onKey(e => {
-    const printable = !e.domEvent.altKey && !e.domEvent.ctrlKey && !e.domEvent.metaKey;
 
-    if (e.domEvent.keyCode === 13) {
-        prompt(term);
-    } else if (e.domEvent.keyCode === 8) {
-        // Do not delete the prompt
-        // term.write('\b \b');
-        
-        if (term._core.buffer.x > beforeString.length) {
-            term.write('\b \b');
-        }
-    } else if (e.domEvent.keyCode === 40||e.domEvent.keyCode === 37||e.domEvent.keyCode === 39) {
-
-    }else if (e.domEvent.keyCode === 38) {
-
-    }
-    else if (printable) {
-        term.write(e.key);
-    }
-    console.log(e.domEvent.keyCode)
-});
 
 function prompt(term: any) {
     term.write('\r\n');
@@ -59,6 +30,37 @@ function prompt(term: any) {
 //Hugesoft [version 0.00.10000.100\n(c) 2021 Hugesoft .Inc All rights reserved\n\n
 
 onMounted(() => {
+    var term = new Terminal({
+        rendererType: "canvas", //渲染类型
+        rows: 35, //行数
+        convertEol: true, //启用时，光标将设置为下一行的开头
+        scrollback: 10, //终端中的回滚量
+        disableStdin: false, //是否应禁用输入
+        cursorBlink: true, //光标闪烁
+    });
+    term.onKey(e => {
+        const printable = !e.domEvent.altKey && !e.domEvent.ctrlKey && !e.domEvent.metaKey;
+
+        if (e.domEvent.keyCode === 13) {
+            prompt(term);
+        } else if (e.domEvent.keyCode === 8) {
+            // Do not delete the prompt
+            // term.write('\b \b');
+
+            if (term._core.buffer.x > beforeString.length) {
+                term.write('\b \b');
+            }
+        } else if (e.domEvent.keyCode === 40 || e.domEvent.keyCode === 37 || e.domEvent.keyCode === 39) {
+
+        } else if (e.domEvent.keyCode === 38) {
+
+        }
+        else if (printable) {
+            term.write(e.key);
+        }
+        console.log(e.domEvent.keyCode)
+    });
+
     let termdom = document.getElementById('terminal');
     if (termdom) {
         term.open(termdom);
