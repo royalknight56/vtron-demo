@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-08 15:13:50
+ * @LastEditTime: 2021-09-09 10:54:59
  * @Description: 
  * @FilePath: /publishTest/src/App.vue
 -->
@@ -57,7 +57,6 @@ import GotoReadMe from './components/apps/GotoReadMe.vue';
 ClearDesktop();
 AddToDesktop({
   name: '我的电脑',
-  apptemp: 'Test1',
   icon: computer,
   width: 400,
   height: 400,
@@ -66,7 +65,6 @@ AddToDesktop({
 
 AddToDesktop({
   name: '版本信息',
-  apptemp: 'Test2',
   icon: beat,
   width: 170,
   height: 100,
@@ -74,7 +72,6 @@ AddToDesktop({
 });
 AddToDesktop({
   name: '浏览器',
-  apptemp: 'Test3',
   icon: brower,
   width: 600,
   height: 500,
@@ -82,7 +79,6 @@ AddToDesktop({
 });
 AddToDesktop({
   name: '终端',
-  apptemp: 'app_console',
   icon: term,
   width: 400,
   height: 400,
@@ -91,7 +87,6 @@ AddToDesktop({
 });
 AddToDesktop({
   name: 'vscode',
-  apptemp: "app_vscode",
   icon: vscode,
   width: 600,
   height: 500,
@@ -99,7 +94,6 @@ AddToDesktop({
 });
 AddToDesktop({
   name: '窗口通信',
-  apptemp: "Adm_loading",
   icon: signalicon,
   width: 170,
   height: 100,
@@ -107,7 +101,6 @@ AddToDesktop({
 });
 // AddToDesktop({
 //   name: '前往后台管理样例',
-//   apptemp: "Adm_loading",
 //   icon: backicon,
 //   width: 170,
 //   height: 100,
@@ -115,7 +108,6 @@ AddToDesktop({
 // });
 AddToDesktop({
   name: '点个star',
-  apptemp: "GitStars",
   icon: GitHub,
   width: 170,
   height: 100,
@@ -123,7 +115,6 @@ AddToDesktop({
 });
 AddToDesktop({
   name: '文档',
-  apptemp: "winicon",
   icon: winicon,
   width: 170,
   height: 100,

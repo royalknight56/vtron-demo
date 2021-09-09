@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-08 19:13:55
+ * @LastEditTime: 2021-09-09 10:58:53
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/app_console.vue
 -->
@@ -46,8 +46,8 @@ onMounted(() => {
         } else if (e.domEvent.keyCode === 8) {
             // Do not delete the prompt
             // term.write('\b \b');
-
-            if (term._core.buffer.x > beforeString.length) {
+            // @ts-ignore
+            if (term._core.buffer.x > beforeString.length) { 
                 term.write('\b \b');
             }
         } else if (e.domEvent.keyCode === 40 || e.domEvent.keyCode === 37 || e.domEvent.keyCode === 39) {
