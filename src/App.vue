@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-09 10:54:59
+ * @LastEditTime: 2021-09-09 20:53:02
  * @Description: 
  * @FilePath: /publishTest/src/App.vue
 -->
@@ -51,7 +51,7 @@ import Adm_loading from "./components/apps/Adm_loading.vue"
 import GitStars from "./components/apps/GitStars.vue"
 import GotoAdminVue from './components/apps/GotoAdmin.vue';
 import GotoReadMe from './components/apps/GotoReadMe.vue';
-
+import webshell from "./components/apps/webshell.vue"
 
 
 ClearDesktop();
@@ -85,6 +85,15 @@ AddToDesktop({
   tmp: app_console
 
 });
+
+AddToDesktop({
+  name: 'WebShell',
+  icon: term,
+  width: 500,
+  height: 415,
+  tmp: webshell
+});
+
 AddToDesktop({
   name: 'vscode',
   icon: vscode,
