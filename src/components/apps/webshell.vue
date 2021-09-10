@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-09 20:57:42
+ * @LastEditTime: 2021-09-09 21:07:32
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/webshell.vue
 -->
@@ -11,7 +11,7 @@
             <input v-model="password" />
             <button @click="relogin()">Login</button>
         </div>
-        <div v-show="state == 'success'" id="terminal"></div>
+        <div v-show="state == 'success'" id="terminal" class="terminal"></div>
     </div>
 </template>
 <script lang="ts" setup>
@@ -35,7 +35,7 @@ function initTerm() {
     term = new Terminal({
         fontSize: 14,
         cursorBlink: true,
-        cols:100
+        cols: 100
     });
     const attachAddon = new AttachAddon(socket);
     const fitAddon = new FitAddon();
@@ -48,6 +48,10 @@ function initTerm() {
 
     fitAddon.fit();
     term.focus();
+    term.onResize(size => {
+        console.log(size)
+        //   term.onSend({ Op: "resize", Cols: size.cols, Rows: size.rows });
+    });
 }
 function login(callback: Function, fail: Function) {
     // socket.send(JSON.stringify({ password: '123456' }))
@@ -136,7 +140,17 @@ onUnmounted(() => {
     term.dispose()
 })
 </script>
+
+<style>
+#terminal{
+    width:100%;
+    height:100%;
+}
+
+</style>
+
 <style scoped>
+
 .consoleline {
     position: absolute;
     left: 0;
