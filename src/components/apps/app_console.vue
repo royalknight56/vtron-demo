@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-09 10:58:53
+ * @LastEditTime: 2021-09-17 18:55:35
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/app_console.vue
 -->
@@ -38,6 +38,7 @@ onMounted(() => {
         disableStdin: false, //是否应禁用输入
         cursorBlink: true, //光标闪烁
     });
+    console.log('beta:0.1')
     term.onKey(e => {
         const printable = !e.domEvent.altKey && !e.domEvent.ctrlKey && !e.domEvent.metaKey;
 
