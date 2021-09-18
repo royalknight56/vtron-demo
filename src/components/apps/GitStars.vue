@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-26 09:32:04
+ * @LastEditTime: 2021-09-18 18:48:41
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/GitStars.vue
 -->
@@ -14,16 +14,16 @@ import { WindowIPC } from 'vue3-win10'
 import type { PropType } from "vue"
 
 let props = defineProps({
-    ctx: {
-        type: Object as PropType<PageItem>
+    id: {
+        type: String
     }
 })
 setTimeout(() => {
     window.open('https://github.com/royalknight56/vue-windows10')
 })
 setTimeout(() => {
-    if (props.ctx?.id) {
-        WindowIPC.getInstance().destoryWindow(props.ctx?.id)
+    if (props.id) {
+        WindowIPC.getInstance().destoryWindow(props.id)
     }
 },1000)
 

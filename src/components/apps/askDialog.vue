@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-26 15:24:47
+ * @LastEditTime: 2021-09-18 17:54:07
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/askDialog.vue
 -->
@@ -17,8 +17,8 @@ import type { PageItem } from 'vue3-win10'
 
 
 let props = defineProps({
-  ctx:{
-    type:Object as PropType<PageItem>
+  id:{
+    type:String
   }
 })
 let input=ref('')
@@ -27,8 +27,8 @@ WindowIPC.getInstance().on('emit_children',(val:string)=>{
 })
 function close(str:string) {
   WindowIPC.getInstance().emit('testEvent',str)
-  if(props.ctx?.id){
-    WindowIPC.getInstance().destoryWindow(props.ctx?.id)
+  if(props.id){
+    WindowIPC.getInstance().destoryWindow(props.id)
   }
 }
 

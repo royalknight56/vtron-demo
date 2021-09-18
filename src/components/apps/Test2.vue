@@ -1,12 +1,13 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-26 09:30:00
+ * @LastEditTime: 2021-09-18 18:40:17
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/Test2.vue
 -->
 <template>
     <div class="t2">
-        mywin 0.1
+        mywin 0.1.1<br>
+        v3w10-npm 0.1.1
         <img width="20" :src="winimg">
     </div>
 </template>

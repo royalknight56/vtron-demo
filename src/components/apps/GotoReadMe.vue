@@ -1,8 +1,8 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-08 15:13:04
+ * @LastEditTime: 2021-09-18 18:49:10
  * @Description: 
- * @FilePath: /publishTest/src/components/apps/GitStars copy.vue
+ * @FilePath: /publishTest/src/components/apps/GotoReadMe.vue
 -->
 <template>
     <div>Loading</div>
@@ -14,16 +14,16 @@ import { WindowIPC } from 'vue3-win10'
 import type { PropType } from "vue"
 
 let props = defineProps({
-    ctx: {
-        type: Object as PropType<PageItem>
+    id: {
+        type: String
     }
 })
 setTimeout(() => {
     window.open('http://v3w10.myim.online')
 })
 setTimeout(() => {
-    if (props.ctx?.id) {
-        WindowIPC.getInstance().destoryWindow(props.ctx?.id)
+    if (props.id) {
+        WindowIPC.getInstance().destoryWindow(props.id)
     }
 },1000)
 

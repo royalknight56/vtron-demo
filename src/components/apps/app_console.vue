@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-17 18:55:35
+ * @LastEditTime: 2021-09-17 19:04:20
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/app_console.vue
 -->
@@ -18,19 +18,11 @@ import { Terminal } from 'xterm';
 let beforeString = 'C:\\User\\Administrator>'
 
 
-function prompt(term: any) {
-    term.write('\r\n');
-    term.write(beforeString);
-}
+
 //  term.onData((val) => {
 //      term.write(val);
 //    }); 
-
-
-//Hugesoft [version 0.00.10000.100\n(c) 2021 Hugesoft .Inc All rights reserved\n\n
-
-onMounted(() => {
-    var term = new Terminal({
+var term = new Terminal({
         rendererType: "canvas", //渲染类型
         rows: 35, //行数
         convertEol: true, //启用时，光标将设置为下一行的开头
@@ -38,7 +30,16 @@ onMounted(() => {
         disableStdin: false, //是否应禁用输入
         cursorBlink: true, //光标闪烁
     });
-    console.log('beta:0.1')
+function prompt(term: any) {
+    term.write('\r\n');
+    term.write(beforeString);
+}
+//Hugesoft [version 0.00.10000.100\n(c) 2021 Hugesoft .Inc All rights reserved\n\n
+
+onMounted(() => {
+    
+    console.log('beta:0.1.1')
+    term.clear()
     term.onKey(e => {
         const printable = !e.domEvent.altKey && !e.domEvent.ctrlKey && !e.domEvent.metaKey;
 

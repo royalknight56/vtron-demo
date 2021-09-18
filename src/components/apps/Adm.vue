@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-26 15:23:29
+ * @LastEditTime: 2021-09-18 17:43:38
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/Adm.vue
 -->
@@ -32,7 +32,7 @@ WindowIPC.getInstance().on('testEvent', (arg: string) => {
 })
 function submit() {
     // new DragWindow(0,0,'确定提交？',300,400,{content:askDialogVue,use:[ElementPlus]})
-    new DragWindow(0, 0, '确定提交？', beatico, 200, 100, { content: askDialogVue })
+    new DragWindow(0, 0, '确定提交？', beatico, 200, 100, { content: askDialogVue }).show()
     nextTick(()=>{
         WindowIPC.getInstance().emit('emit_children',input.value)
     })

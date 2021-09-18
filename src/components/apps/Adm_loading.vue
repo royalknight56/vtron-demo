@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-08-26 17:29:20
+ * @LastEditTime: 2021-09-18 17:44:42
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/Adm_loading.vue
 -->
@@ -18,15 +18,16 @@ import { defineComponent, DefineComponent, PropType } from "vue"
 import beatico from "../../assets/beat.ico"
 defineComponent
 let props = defineProps({
-    ctx: {
-        type: Object as PropType<PageItem>
+    id: {
+        type: String
     }
 })
 setTimeout(() => {
-    if (props.ctx?.id) {
-        WindowIPC.getInstance().destoryWindow(props.ctx?.id)
+    if (props.id) {
+        WindowIPC.getInstance().destoryWindow(props.id)
     }
-    new DragWindow(0, 0, '窗口通信',beatico, 300, 400, { content: AdmVue},[ElementPlus])
+    let next = new DragWindow(0, 0, '窗口通信',beatico, 300, 400, { content: AdmVue},[ElementPlus])
+    next.show()
 }, 1000)
 
 

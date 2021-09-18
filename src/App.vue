@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-09 10:54:59
+ * @LastEditTime: 2021-09-18 18:42:49
  * @Description: 
  * @FilePath: /publishTest/src/App.vue
 -->
@@ -15,7 +15,7 @@
 
 <script lang="ts" setup>
 import { defineComponent } from 'vue'
-import { computerCTC, WindowIPC } from 'vue3-win10'
+import { computerCTC, DragWindow, WindowIPC } from 'vue3-win10'
 
 import logo from "./assets/logo.png";
 // console.log(HelloWorldVue)
@@ -53,51 +53,40 @@ import GotoAdminVue from './components/apps/GotoAdmin.vue';
 import GotoReadMe from './components/apps/GotoReadMe.vue';
 
 
-
 ClearDesktop();
 AddToDesktop({
   name: '我的电脑',
   icon: computer,
-  width: 400,
-  height: 400,
-  tmp: Test1
+  window: new DragWindow(0, 0, '我的电脑', computer, 400, 400, { content: Test1 })
 });
 
 AddToDesktop({
   name: '版本信息',
   icon: beat,
-  width: 170,
-  height: 100,
-  tmp: Test2
+  window: new DragWindow(0, 0, '版本信息', beat, 200, 100, { content: Test2 })
 });
 AddToDesktop({
   name: '浏览器',
   icon: brower,
-  width: 600,
-  height: 500,
-  tmp: Test3
+  window: new DragWindow(0, 0, '浏览器', brower, 600, 500, { content: Test3 })
+
 });
 AddToDesktop({
   name: '终端',
   icon: term,
-  width: 400,
-  height: 400,
-  tmp: app_console
+  window: new DragWindow(0, 0, '终端', term, 400, 400, { content: app_console })
 
 });
 AddToDesktop({
   name: 'vscode',
   icon: vscode,
-  width: 600,
-  height: 500,
-  tmp: app_vscode
+  window: new DragWindow(0, 0, 'vscode', vscode, 600, 500, { content: app_vscode })
+
 });
 AddToDesktop({
   name: '窗口通信',
   icon: signalicon,
-  width: 170,
-  height: 100,
-  tmp: Adm_loading
+  window: new DragWindow(0, 0, '窗口通信', signalicon, 170, 100, { content: Adm_loading })
 });
 // AddToDesktop({
 //   name: '前往后台管理样例',
@@ -109,16 +98,12 @@ AddToDesktop({
 AddToDesktop({
   name: '点个star',
   icon: GitHub,
-  width: 170,
-  height: 100,
-  tmp: GitStars
+  window: new DragWindow(0, 0, '点个star', GitHub, 170, 100, { content: GitStars })
 });
 AddToDesktop({
   name: '文档',
   icon: winicon,
-  width: 170,
-  height: 100,
-  tmp: GotoReadMe
+  window: new DragWindow(0, 0, '文档', winicon, 170, 100, { content: GotoReadMe })
 });
 
 
