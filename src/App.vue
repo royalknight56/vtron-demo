@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-18 18:42:49
+ * @LastEditTime: 2021-09-22 09:58:22
  * @Description: 
  * @FilePath: /publishTest/src/App.vue
 -->
@@ -41,7 +41,7 @@ import winicon from "./assets/win.png"
 
 
 
-import Test1 from "./components/apps/Test1.vue"
+import MyComputer from "./components/apps/MyComputer.vue"
 import Test2 from "./components/apps/Test2.vue"
 import Test3 from "./components/apps/Test3.vue"
 
@@ -57,7 +57,7 @@ ClearDesktop();
 AddToDesktop({
   name: '我的电脑',
   icon: computer,
-  window: new DragWindow(0, 0, '我的电脑', computer, 400, 400, { content: Test1 })
+  window: new DragWindow(0, 0, '我的电脑', computer, 400, 400, { content: MyComputer })
 });
 
 AddToDesktop({

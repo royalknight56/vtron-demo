@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-18 18:40:17
+ * @LastEditTime: 2021-09-30 14:48:19
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/Test2.vue
 -->
@@ -19,7 +19,5 @@ import winimg from "../../assets/win.png"
     z-index: 99;
     /* background-color: blanchedalmond; */
 }
-.t2:hover {
-    background-color: rgba(255, 235, 205, 0.747);
-}
+
 </style>
