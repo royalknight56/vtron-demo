@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-22 09:58:22
+ * @LastEditTime: 2021-12-06 15:10:07
  * @Description: 
  * @FilePath: /publishTest/src/App.vue
 -->
@@ -63,7 +63,7 @@ AddToDesktop({
 AddToDesktop({
   name: '版本信息',
   icon: beat,
-  window: new DragWindow(0, 0, '版本信息', beat, 200, 100, { content: Test2 })
+  window: new DragWindow(0, 0, '版本信息', beat, 250, 150, { content: Test2 })
 });
 AddToDesktop({
   name: '浏览器',
