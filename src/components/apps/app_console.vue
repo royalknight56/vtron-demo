@@ -1,28 +1,42 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-17 19:04:20
+ * @LastEditTime: 2021-12-06 15:43:09
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/app_console.vue
 -->
 <template>
     <div class="consoleline" ref="inputref">
-        <div id="terminal"></div>
+        <div :id="'Terminal'+dateStr"></div>
     </div>
 </template>
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
+import { onUnmounted, reactive, ref } from "vue";
 import { nextTick, onMounted } from "vue";
 
 import { Terminal } from 'xterm';
 
 let beforeString = 'C:\\User\\Administrator>'
 
+let dateStr = ref(new Date().getTime())
 
+let term:Terminal|undefined = undefined;
 
 //  term.onData((val) => {
 //      term.write(val);
 //    }); 
-var term = new Terminal({
+
+function prompt(term: any) {
+    term.write('\r\n');
+    term.write(beforeString);
+}
+
+//Hugesoft [version 0.00.10000.100\n(c) 2021 Hugesoft .Inc All rights reserved\n\n
+onUnmounted(()=>{
+term?.clearSelection()
+console.log('onUnmounted');
+})
+onMounted(() => {
+    term = new Terminal({
         rendererType: "canvas", //渲染类型
         rows: 35, //行数
         convertEol: true, //启用时，光标将设置为下一行的开头
@@ -30,13 +44,6 @@ var term = new Terminal({
         disableStdin: false, //是否应禁用输入
         cursorBlink: true, //光标闪烁
     });
-function prompt(term: any) {
-    term.write('\r\n');
-    term.write(beforeString);
-}
-//Hugesoft [version 0.00.10000.100\n(c) 2021 Hugesoft .Inc All rights reserved\n\n
-
-onMounted(() => {
     
     console.log('beta:0.1.1')
     term.clear()
@@ -50,7 +57,7 @@ onMounted(() => {
             // term.write('\b \b');
             // @ts-ignore
             if (term._core.buffer.x > beforeString.length) { 
-                term.write('\b \b');
+                term?.write('\b \b');
             }
         } else if (e.domEvent.keyCode === 40 || e.domEvent.keyCode === 37 || e.domEvent.keyCode === 39) {
 
@@ -58,12 +65,12 @@ onMounted(() => {
 
         }
         else if (printable) {
-            term.write(e.key);
+            term?.write(e.key);
         }
         console.log(e.domEvent.keyCode)
     });
 
-    let termdom = document.getElementById('terminal');
+    let termdom = document.getElementById('Terminal'+dateStr.value);
     if (termdom) {
         term.open(termdom);
         term.write('Hugesoft [version 0.00.10000.100\r\n(c) 2021 Hugesoft .Inc All rights reserved\r\n')
