@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-30 15:10:48
+ * @LastEditTime: 2021-12-08 20:40:58
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/MyComputer.vue
 -->
@@ -19,24 +19,25 @@
             <span v-for="item in folderStack">{{ item.name }}/</span>
         </div>
     </div>
-    <div class="desk_outer">
+    <div class="desk_outer" ref="compu">
         <div class="desk_item" v-for="item in currentList" @dblclick="openFolder(item)">
             <div class="item_img">
                 <!-- <svg t="1629880946543" class="icon" viewBox="0 0 1126 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11619" width="50" height="50"><path d="M1076.875776 998.4H49.803776A49.152 49.152 0 0 1 0.139776 950.016V148.736a49.408 49.408 0 0 1 49.664-49.152h1027.072A49.408 49.408 0 0 1 1126.539776 148.736v801.28A49.408 49.408 0 0 1 1076.875776 998.4z" fill="#FFE9B8" p-id="11620"></path><path d="M563.339776 336.64H0.139776V51.2a47.616 47.616 0 0 1 45.056-51.2H435.339776a51.2 51.2 0 0 1 47.616 39.424z" fill="#FFC112" p-id="11621"></path><path d="M1081.483776 1024H45.195776A47.616 47.616 0 0 1 0.139776 972.8V250.368a47.616 47.616 0 0 1 45.056-49.92h1036.288A47.616 47.616 0 0 1 1126.539776 250.368v723.712A47.872 47.872 0 0 1 1081.483776 1024z" fill="#FFD741" p-id="11622"></path></svg> -->
-                <img width="50" :src="folderimg" />
+                <img width="50" :src="item.icon?item.icon:folderimg" />
             </div>
             <div class="item_name">{{ item.name }}</div>
         </div>
     </div>
 </template>
 <script lang="ts" setup>
-import { reactive } from "vue";
-import type { UnwrapNestedRefs } from "@vue/reactivity";
+import { reactive, onMounted } from "vue";
+import { ref, UnwrapNestedRefs } from "@vue/reactivity";
 import folderimg from "../../assets/winFloder.ico"
 interface Folder {
     name: string,
     children: Array<Folder>,
-    parent?: Folder
+    parent?: Folder,
+    icon?: string 
 }
 let folder: Folder = {
     name: 'C:/',
@@ -82,6 +83,96 @@ function newFolder() {
     folderStack[folderStack.length - 1].children.push(newF)
     currentList.push(newF)
 }
+function newFile(name:string,icon:string) {
+    let newF = {
+        name: name,
+        children: [],
+        icon:icon
+    }
+    folderStack[folderStack.length - 1].children.push(newF)
+    currentList.push(newF)
+}
+// 拖动文件上传
+let compu = ref(null);
+onMounted(() => {
+
+    var oBox = <any>compu.value as HTMLElement;
+    if (oBox) {
+    } else {
+        return;
+    }
+    // var oM = document.getElementById('m1');
+
+    let timer = 0;
+    document.ondragover = function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            // oBox.style.display = 'none';
+        }, 200);
+        //    oBox.style.display = 'block';
+    };
+    //进入子集的时候 会触发ondragover 频繁触发 不给ondrop机会
+    oBox.ondragenter = function () {
+        // oBox.innerHTML = '请释放鼠标';
+    };
+    oBox.ondragover = function () {
+        return false;
+    };
+    oBox.ondragleave = function () {
+        // oBox.innerHTML = '请将文件拖拽到此区域';
+    };
+    oBox.ondrop = function (ev: DragEvent) {
+        console.log(ev?.dataTransfer)
+        var oFileList = ev?.dataTransfer?.files;
+
+        readFileList(oFileList);
+        
+        // let oFile = oFileList?.[0];
+        // console.log(oFileList?.length);
+        
+        return false;
+    };
+})
+async function readFileList(list:FileList|undefined){
+
+    let len = list?.length||0;
+    for(let i = 0; i < len;i++){
+        let item = list?.[i];
+
+        // let oFile = null;
+        let reader = new FileReader();
+        //读取成功
+        reader.onload = function () {
+            console.log(reader);
+        };
+        reader.onloadstart = function () {
+            console.log('读取开始');
+        };
+        reader.onloadend = function () {
+            console.log('读取结束');
+            newFile(item?.name||'Unknown',reader.result as string)
+        };
+        reader.onabort = function () {
+            console.log('中断');
+        };
+        reader.onerror = function () {
+            console.log('读取失败');
+        };
+        reader.onprogress = function (ev) {
+            var scale = ev.loaded / ev.total;
+            if (scale >= 0.5) {
+                // alert(1);
+                reader.abort();
+            }
+            console.log(scale);
+            // oM.value = scale * 100;
+        };
+        reader.readAsDataURL( new Blob([item as BlobPart]));
+    }
+}
+
+
+
 </script>
 <style scoped>
 .desk_outer {
@@ -120,12 +211,15 @@ function newFolder() {
     text-align: center;
 }
 .item_name {
+    overflow:hidden;
+    max-width:200px;
     color: rgba(0, 0, 0, 0.664);
     text-align: center;
     font-size: 14px;
     font-weight: 400;
     height: 20px;
     line-height: 20px;
+    text-overflow:ellipsis;
 }
 
 .uper {
