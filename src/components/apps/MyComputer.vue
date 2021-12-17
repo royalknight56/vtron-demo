@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-12-08 20:40:58
+ * @LastEditTime: 2021-12-08 20:51:02
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/MyComputer.vue
 -->
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="desk_outer" ref="compu">
-        <div class="desk_item" v-for="item in currentList" @dblclick="openFolder(item)">
+        <div class="desk_item" v-for="item in currentList" @dblclick="openFile(item)">
             <div class="item_img">
                 <!-- <svg t="1629880946543" class="icon" viewBox="0 0 1126 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11619" width="50" height="50"><path d="M1076.875776 998.4H49.803776A49.152 49.152 0 0 1 0.139776 950.016V148.736a49.408 49.408 0 0 1 49.664-49.152h1027.072A49.408 49.408 0 0 1 1126.539776 148.736v801.28A49.408 49.408 0 0 1 1076.875776 998.4z" fill="#FFE9B8" p-id="11620"></path><path d="M563.339776 336.64H0.139776V51.2a47.616 47.616 0 0 1 45.056-51.2H435.339776a51.2 51.2 0 0 1 47.616 39.424z" fill="#FFC112" p-id="11621"></path><path d="M1081.483776 1024H45.195776A47.616 47.616 0 0 1 0.139776 972.8V250.368a47.616 47.616 0 0 1 45.056-49.92h1036.288A47.616 47.616 0 0 1 1126.539776 250.368v723.712A47.872 47.872 0 0 1 1081.483776 1024z" fill="#FFD741" p-id="11622"></path></svg> -->
                 <img width="50" :src="item.icon?item.icon:folderimg" />
@@ -35,9 +35,10 @@ import { ref, UnwrapNestedRefs } from "@vue/reactivity";
 import folderimg from "../../assets/winFloder.ico"
 interface Folder {
     name: string,
-    children: Array<Folder>,
+    children?: Array<Folder>,
     parent?: Folder,
-    icon?: string 
+    icon?: string,
+    type?:string
 }
 let folder: Folder = {
     name: 'C:/',
@@ -60,19 +61,27 @@ let folder: Folder = {
 let folderStack: UnwrapNestedRefs<Array<Folder>> = reactive([folder]);
 
 let currentList: UnwrapNestedRefs<Array<Folder>> = reactive([])
-currentList.push(...folder.children)
+currentList.push(...folder.children||[])
 
-function openFolder(folder: Folder) {
+function openFile(folder: Folder) {
+    
+    if(folder.children) {
+        folderStack.push(folder)
+        currentList.splice(0, currentList.length);
+        currentList.push(...folder.children)
+    }else{
+        if(folder.type=='image'){
+            console.log(folder.name)
+        }
+    }
 
-    folderStack.push(folder)
-    currentList.splice(0, currentList.length);
-    currentList.push(...folder.children)
+    
 }
 function backFolder() {
     if (folderStack.length > 1) {
         folderStack.pop();
         currentList.splice(0, currentList.length);
-        currentList.push(...folderStack[folderStack.length - 1].children)
+        currentList.push(...folderStack[folderStack.length - 1].children||[])
     }
 }
 function newFolder() {
@@ -80,16 +89,17 @@ function newFolder() {
         name: '新建文件夹',
         children: [],
     }
-    folderStack[folderStack.length - 1].children.push(newF)
+    folderStack[folderStack.length - 1].children?.push(newF)
     currentList.push(newF)
 }
 function newFile(name:string,icon:string) {
     let newF = {
         name: name,
-        children: [],
+        // children: [],
+        type:'image',
         icon:icon
     }
-    folderStack[folderStack.length - 1].children.push(newF)
+    folderStack[folderStack.length - 1].children?.push(newF)
     currentList.push(newF)
 }
 // 拖动文件上传
