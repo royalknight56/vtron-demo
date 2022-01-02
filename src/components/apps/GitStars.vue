@@ -8,22 +8,16 @@
     <div>Loading</div>
 </template>
 <script lang="ts" setup>
+import { DWM } from 'vue3-win10'
+import { inject } from "vue"
 
-import type { PageItem } from 'vue3-win10'
-import { WindowIPC } from 'vue3-win10'
-import type { PropType } from "vue"
-
-let props = defineProps({
-    id: {
-        type: String
-    }
-})
+let winId = <string>inject('windowId')
 setTimeout(() => {
     window.open('https://github.com/royalknight56/vue-windows10')
 })
 setTimeout(() => {
-    if (props.id) {
-        WindowIPC.getInstance().destoryWindow(props.id)
+    if (winId) {
+        DWM.getInstance().destoryWindow(winId)
     }
 },1000)
 

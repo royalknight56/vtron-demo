@@ -12,21 +12,21 @@
 // import { DragWindow } from "../components/window/libs/DragWindow";
 import AdmVue from "./Adm.vue";
 import ElementPlus from 'element-plus';
-import type { PageItem } from 'vue3-win10'
-import { WindowIPC,DragWindow } from 'vue3-win10'
-import { defineComponent, DefineComponent, PropType } from "vue"
+import { DWM, DragWindow } from 'vue3-win10'
+import { defineComponent, DefineComponent, inject, PropType } from "vue"
 import beatico from "../../assets/beat.ico"
-defineComponent
-let props = defineProps({
-    id: {
-        type: String
-    }
-})
+let winId = <string>inject('windowId')
 setTimeout(() => {
-    if (props.id) {
-        WindowIPC.getInstance().destoryWindow(props.id)
+    if (winId) {
+        DWM.getInstance().destoryWindow(winId)
     }
-    let next = new DragWindow(0, 0, '窗口通信',beatico, 300, 400, { content: AdmVue},[ElementPlus])
+    let next = new DragWindow({
+        title: '窗口通信',
+        icon: beatico,
+        width: 300,
+        height: 400,
+        content: AdmVue
+    })
     next.show()
 }, 1000)
 

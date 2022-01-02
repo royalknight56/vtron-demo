@@ -10,12 +10,11 @@
   <div class="outer">
     <Win10></Win10>
   </div>
-
 </template>
 
 <script lang="ts" setup>
 import { defineComponent } from 'vue'
-import { computerCTC, DragWindow, WindowIPC } from 'vue3-win10'
+import { SystemStatus, DragWindow, DWM } from 'vue3-win10'
 
 import logo from "./assets/logo.png";
 // console.log(HelloWorldVue)
@@ -37,10 +36,6 @@ import signalicon from "./assets/signal.png"
 import winicon from "./assets/win.png"
 
 
-
-
-
-
 import MyComputer from "./components/apps/MyComputer.vue"
 import Test2 from "./components/apps/Test2.vue"
 import Test3 from "./components/apps/Test3.vue"
@@ -57,36 +52,75 @@ ClearDesktop();
 AddToDesktop({
   name: '我的电脑',
   icon: computer,
-  window: new DragWindow(0, 0, '我的电脑', computer, 400, 400, { content: MyComputer })
+  window: new DragWindow(
+    {
+      title: '我的电脑',
+      icon: computer,
+      width: 400,
+      height: 400,
+      content: MyComputer
+    })
 });
 
 AddToDesktop({
   name: '版本信息',
   icon: beat,
-  window: new DragWindow(0, 0, '版本信息', beat, 250, 150, { content: Test2 })
+  window: new DragWindow(
+    {
+      title: '版本信息',
+      icon: beat,
+      width: 250,
+      height: 150,
+      content: Test2
+    })
 });
 AddToDesktop({
   name: '浏览器',
   icon: brower,
-  window: new DragWindow(0, 0, '浏览器', brower, 600, 500, { content: Test3 })
+  window: new DragWindow(
+    {
+      title: '浏览器',
+      icon: brower,
+      width: 600,
+      height: 500,
+      content: Test3
+    })
 
 });
 AddToDesktop({
   name: '终端',
   icon: term,
-  window: new DragWindow(0, 0, '终端', term, 400, 400, { content: app_console })
+  window: new DragWindow({
+    title: '终端',
+    icon: term,
+    width: 400,
+    height: 400,
+    content: app_console
+  })
 
 });
 AddToDesktop({
   name: 'vscode',
   icon: vscode,
-  window: new DragWindow(0, 0, 'vscode', vscode, 600, 500, { content: app_vscode })
+  window: new DragWindow({
+    title: 'vscode',
+    icon: vscode,
+    width: 600,
+    height: 500,
+    content: app_vscode
+  })
 
 });
 AddToDesktop({
   name: '窗口通信',
   icon: signalicon,
-  window: new DragWindow(0, 0, '窗口通信', signalicon, 170, 100, { content: Adm_loading })
+  window: new DragWindow({
+    title: '窗口通信',
+    icon: signalicon,
+    width: 170,
+    height: 100,
+    content: Adm_loading
+  })
 });
 // AddToDesktop({
 //   name: '前往后台管理样例',
@@ -98,19 +132,31 @@ AddToDesktop({
 AddToDesktop({
   name: '点个star',
   icon: GitHub,
-  window: new DragWindow(0, 0, '点个star', GitHub, 170, 100, { content: GitStars })
+  window: new DragWindow({
+    title: '点个star',
+    icon: GitHub,
+    width: 170,
+    height: 100,
+    content: GitStars
+  })
 });
 AddToDesktop({
   name: '文档',
   icon: winicon,
-  window: new DragWindow(0, 0, '文档', winicon, 170, 100, { content: GotoReadMe })
+  window: new DragWindow({
+    title: '文档',
+    icon: winicon,
+    width: 170,
+    height: 100,
+    content: GotoReadMe
+  })
 });
 
 
 </script>
 
 <style>
-body{
+body {
   margin: 0;
   padding: 0;
 }
@@ -122,7 +168,6 @@ body{
   /* color: #2c3e50; */
   /* margin-top: 60px; */
 }
-
 </style>
 <style scoped>
 .outer {

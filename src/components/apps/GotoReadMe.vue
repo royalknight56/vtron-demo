@@ -9,21 +9,16 @@
 </template>
 <script lang="ts" setup>
 
-import type { PageItem } from 'vue3-win10'
-import { WindowIPC } from 'vue3-win10'
-import type { PropType } from "vue"
+import { DWM } from 'vue3-win10'
+import { inject } from "vue"
+let winId = <string>inject('windowId')
 
-let props = defineProps({
-    id: {
-        type: String
-    }
-})
 setTimeout(() => {
     window.open('http://v3w10.myim.online')
 })
 setTimeout(() => {
-    if (props.id) {
-        WindowIPC.getInstance().destoryWindow(props.id)
+    if (winId) {
+        DWM.getInstance().destoryWindow(winId)
     }
 },1000)
 

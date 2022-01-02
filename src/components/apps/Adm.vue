@@ -18,7 +18,7 @@ import { nextTick, ref } from "vue";
 import { DragWindow } from 'vue3-win10';
 import askDialogVue from "./askDialog.vue";
 // import ElementPlus from 'element-plus';
-import { WindowIPC } from 'vue3-win10';
+import { DWM } from 'vue3-win10';
 import beatico from "../../assets/beat.ico"
 
 let radio1 = ref(1)
@@ -27,14 +27,20 @@ let radio3 = ref(1)
 let input = ref('')
 let bolvalue = ref(true)
 let msg = ref('')
-WindowIPC.getInstance().on('testEvent', (arg: string) => {
+DWM.getInstance().on('testEvent', (arg: string) => {
     msg.value = arg
 })
 function submit() {
     // new DragWindow(0,0,'确定提交？',300,400,{content:askDialogVue,use:[ElementPlus]})
-    new DragWindow(0, 0, '确定提交？', beatico, 200, 100, { content: askDialogVue }).show()
+    new DragWindow({
+        title: '确定提交？',
+        icon: beatico,
+        width: 200,
+        height: 100,
+        content: askDialogVue
+    }).show()
     nextTick(()=>{
-        WindowIPC.getInstance().emit('emit_children',input.value)
+        DWM.getInstance().emit('emit_children',input.value)
     })
 
 }

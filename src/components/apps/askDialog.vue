@@ -11,24 +11,18 @@
   <button @click="close('取消')">取消</button><br>
 </template>
 <script lang="ts" setup>
-import { PropType, ref } from "vue";
-import { WindowIPC } from 'vue3-win10';
-import type { PageItem } from 'vue3-win10'
+import { inject, PropType, ref } from "vue";
+import { DWM } from 'vue3-win10';
 
-
-let props = defineProps({
-  id:{
-    type:String
-  }
-})
+let winId = <string>inject('windowId')
 let input=ref('')
-WindowIPC.getInstance().on('emit_children',(val:string)=>{
+DWM.getInstance().on('emit_children',(val:string)=>{
   input.value=val
 })
 function close(str:string) {
-  WindowIPC.getInstance().emit('testEvent',str)
-  if(props.id){
-    WindowIPC.getInstance().destoryWindow(props.id)
+  DWM.getInstance().emit('testEvent',str)
+  if(winId){
+    DWM.getInstance().destoryWindow(winId)
   }
 }
 
