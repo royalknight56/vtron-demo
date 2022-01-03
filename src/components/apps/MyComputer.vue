@@ -16,64 +16,32 @@
         </div>
         <div class="uper_nav">
             <div class="uper_nav_button" @click="backFolder()">
-                <svg
-                    t="1632984723698"
-                    class="icon"
-                    viewBox="0 0 1024 1024"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    p-id="10100"
-                >
+                <svg class="icon" viewBox="0 0 1024 1024">
                     <path
                         d="M862.485 481.154H234.126l203.3-203.3c12.497-12.497 12.497-32.758 0-45.255s-32.758-12.497-45.255 0L135.397 489.373c-12.497 12.497-12.497 32.758 0 45.254l256.774 256.775c6.249 6.248 14.438 9.372 22.627 9.372s16.379-3.124 22.627-9.372c12.497-12.497 12.497-32.759 0-45.255l-203.3-203.301h628.36c17.036 0 30.846-13.81 30.846-30.846s-13.81-30.846-30.846-30.846z"
-                        p-id="10101"
                     />
                 </svg>
             </div>
             <div class="uper_nav_button" @click="backFolder()">
-                <svg
-                    t="1632984737821"
-                    class="icon"
-                    viewBox="0 0 1024 1024"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    p-id="10249"
-                >
+                <svg class="icon" viewBox="0 0 1024 1024">
                     <path
                         d="M885.113 489.373L628.338 232.599c-12.496-12.497-32.758-12.497-45.254 0-12.497 12.497-12.497 32.758 0 45.255l203.3 203.3H158.025c-17.036 0-30.846 13.811-30.846 30.846 0 17.036 13.811 30.846 30.846 30.846h628.36L583.084 746.147c-12.497 12.496-12.497 32.758 0 45.255 6.248 6.248 14.438 9.372 22.627 9.372s16.379-3.124 22.627-9.372l256.775-256.775a31.999 31.999 0 0 0 0-45.254z"
-                        p-id="10250"
                     />
                 </svg>
             </div>
             <div class="uper_nav_button uper_nav_button_small" @click="backFolder()">
-                <svg
-                    t="1639145779758"
-                    class="icon"
-                    viewBox="0 0 1024 1024"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    p-id="3080"
-                >
+                <svg class="icon" viewBox="0 0 1024 1024">
                     <path
                         d="M533.333333 516.266667l-174.933333-170.666667-64 59.733333 234.666667 234.666667L768 405.333333l-59.733333-59.733333-174.933334 170.666667z"
                         fill="#444444"
-                        p-id="3081"
                     />
                 </svg>
             </div>
             <div class="uper_nav_button" @click="backFolder()">
-                <svg
-                    t="1639145815176"
-                    class="icon"
-                    viewBox="0 0 1024 1024"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    p-id="3860"
-                >
+                <svg class="icon" viewBox="0 0 1024 1024">
                     <path
                         d="M554.666667 268.8v601.6h-85.333334V268.8L337.066667 401.066667 277.333333 341.333333 512 106.666667 746.666667 341.333333l-59.733334 59.733334L554.666667 268.8z"
                         fill="#444444"
-                        p-id="3861"
                     />
                 </svg>
             </div>
@@ -91,10 +59,10 @@
             class="desk_item"
             v-for="(item , index) in currentList"
             @dragstart="startDrag($event, item)"
-            @drop="folderDrop($event, item,index)"
+            @drop="folderDrop($event, item, index)"
             @dblclick="openFile(item)"
         >
-            <div class="item_img">
+            <div draggable="true" class="item_img">
                 <!-- <svg t="1629880946543" class="icon" viewBox="0 0 1126 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11619" width="50" height="50"><path d="M1076.875776 998.4H49.803776A49.152 49.152 0 0 1 0.139776 950.016V148.736a49.408 49.408 0 0 1 49.664-49.152h1027.072A49.408 49.408 0 0 1 1126.539776 148.736v801.28A49.408 49.408 0 0 1 1076.875776 998.4z" fill="#FFE9B8" p-id="11620"></path><path d="M563.339776 336.64H0.139776V51.2a47.616 47.616 0 0 1 45.056-51.2H435.339776a51.2 51.2 0 0 1 47.616 39.424z" fill="#FFC112" p-id="11621"></path><path d="M1081.483776 1024H45.195776A47.616 47.616 0 0 1 0.139776 972.8V250.368a47.616 47.616 0 0 1 45.056-49.92h1036.288A47.616 47.616 0 0 1 1126.539776 250.368v723.712A47.872 47.872 0 0 1 1081.483776 1024z" fill="#FFD741" p-id="11622"></path></svg> -->
                 <img width="50" :src="item.icon ? item.icon : folderimg" />
             </div>
@@ -180,7 +148,7 @@ function findFileById(id: number): Folder | undefined {
     return result;
 }
 // 删除文件夹
-function deleteFileById(id: number): void {
+function deleteFileById(id: number): Folder | undefined {
     let result: Folder | undefined = undefined;
     function find(folder: Folder) {
         if (folder.children) {
@@ -188,17 +156,17 @@ function deleteFileById(id: number): void {
                 if (folder.children[i].id == id) {
                     folder.children.splice(i, 1);
                     let uper = folderStack.pop();
-                    if(uper){
+                    if (uper) {
                         folderStack.push(uper);
                     }
-                    
-                    return;
+
+                    return uper;
                 }
                 find(folder.children[i])
             }
         }
     }
-    find(folder)
+    return find(folder)
 }
 
 // 打开文件
@@ -254,22 +222,22 @@ function startDrag(ev: DragEvent, item: Folder) {
     // console.log(item)
     // ev?.dataTransfer?.setData('text', ev.target.id);
 }
-function folderDrop(ev: DragEvent, item: Folder,index:number) {
-    console.log(ev?.dataTransfer?.getData('fromobj'))
+
+// 拖到文件放下时
+function folderDrop(ev: DragEvent, item: Folder, index: number) {
     let fromInfo = JSON.parse(ev?.dataTransfer?.getData('frominfo') || '{}')
     let fromId = ev?.dataTransfer?.getData('fromid')
-    let file = findFileById(Number(fromId))
-    console.log(file)
-    if(file){
-        // item.children?.push(file)
-        console.log(folderStack[folderStack.length - 1])
-        folderStack[folderStack.length - 1]?.children?.[index]?.children?.push(file)
-        // console.log(item)
+    console.log(fromInfo)
+    console.log(item)
+    if (fromInfo.id == item.id) {
+        return;
     }
-    deleteFileById(Number(fromId))
-    // console.log(fromFile)
-    // fromFile=undefined;
+    let file = findFileById(Number(fromId))
 
+    if (file) {
+        deleteFileById(Number(fromId))
+        folderStack[folderStack.length - 1]?.children?.[index]?.children?.push(file)
+    }
 }
 // 拖动文件上传
 let compu = ref(null);
