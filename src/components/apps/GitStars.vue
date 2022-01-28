@@ -1,11 +1,12 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-18 18:48:41
+ * @LastEditTime: 2022-01-28 10:39:33
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/GitStars.vue
 -->
 <template>
     <div>Loading</div>
+    <div>没有反应？<a target="_blank" href="https://github.com/royalknight56/vue-windows10">点击前往</a></div>
 </template>
 <script lang="ts" setup>
 import { DWM } from 'vue3-win10'
@@ -19,7 +20,7 @@ setTimeout(() => {
     if (winId) {
         DWM.getInstance().destoryWindow(winId)
     }
-},1000)
+},5000)
 
 
 </script>

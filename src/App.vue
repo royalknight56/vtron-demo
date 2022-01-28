@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-12-06 15:10:07
+ * @LastEditTime: 2022-01-28 10:37:38
  * @Description: 
  * @FilePath: /publishTest/src/App.vue
 -->
@@ -70,8 +70,9 @@ AddToDesktop({
       title: '版本信息',
       icon: beat,
       width: 250,
-      height: 150,
-      content: Test2
+      height: 130,
+      content: Test2,
+      isScalable: false
     })
 });
 AddToDesktop({
@@ -81,9 +82,9 @@ AddToDesktop({
     {
       title: '浏览器',
       icon: brower,
-      width: 600,
-      height: 500,
-      content: Test3
+      width: 800,
+      height: 600,
+      content: Test3,
     })
 
 });
@@ -95,7 +96,8 @@ AddToDesktop({
     icon: term,
     width: 400,
     height: 400,
-    content: app_console
+    content: app_console,
+    isScalable: false
   })
 
 });
@@ -111,17 +113,17 @@ AddToDesktop({
   })
 
 });
-AddToDesktop({
-  name: '窗口通信',
-  icon: signalicon,
-  window: new DragWindow({
-    title: '窗口通信',
-    icon: signalicon,
-    width: 170,
-    height: 100,
-    content: Adm_loading
-  })
-});
+// AddToDesktop({
+//   name: '窗口通信',
+//   icon: signalicon,
+//   window: new DragWindow({
+//     title: '窗口通信',
+//     icon: signalicon,
+//     width: 170,
+//     height: 100,
+//     content: Adm_loading
+//   })
+// });
 // AddToDesktop({
 //   name: '前往后台管理样例',
 //   icon: backicon,

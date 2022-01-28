@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-09-30 15:02:14
+ * @LastEditTime: 2022-01-28 10:35:17
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/Test3.vue
 -->
@@ -25,8 +25,8 @@
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
-let urlinput = ref('')
-let urlsrc = ref('')
+let urlinput = ref('https://cn.bing.com/')
+let urlsrc = ref('https://cn.bing.com/')
 function urlkey(e:KeyboardEvent) {
     if (e.code == 'Enter') {
         changeUrl()
@@ -56,6 +56,7 @@ iframe {
     flex-direction: column;
     height: 100%;
     width: 100%;
+    user-select: none;
 }
 
 .tablist{
