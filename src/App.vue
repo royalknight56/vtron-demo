@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2022-01-28 10:37:38
+ * @LastEditTime: 2022-03-03 10:09:11
  * @Description: 
  * @FilePath: /publishTest/src/App.vue
 -->
@@ -13,38 +13,23 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent } from 'vue'
-import { SystemStatus, DragWindow, DWM } from 'vue3-win10'
-
-import logo from "./assets/logo.png";
-// console.log(HelloWorldVue)
-import { AddToDesktop, ClearDesktop } from "vue3-win10";
-// import Adm_loadingVue from "./components/Adm_loading.vue";
-
+import { AddToDesktop, ClearDesktop,DragWindow } from "vue3-win10";
 
 import computer from "./assets/computer.ico"
 import beat from "./assets/beat.ico"
-// import brow from "./assets/浏览器.png"
 import brower from "./assets/brow.png"
-
 import term from "./assets/term.ico"
 import vscode from "./assets/vscode.png"
-// import img1 from "../assets/term.ico"
 import GitHub from "./assets/GitHub.png"
-import backicon from "./assets/back.png"
-import signalicon from "./assets/signal.png"
 import winicon from "./assets/win.png"
 
 
 import MyComputer from "./components/apps/MyComputer.vue"
-import Test2 from "./components/apps/Test2.vue"
-import Test3 from "./components/apps/Test3.vue"
-
-import app_console from "./components/apps/app_console.vue"
-import app_vscode from "./components/apps/app_vscode.vue"
-import Adm_loading from "./components/apps/Adm_loading.vue"
+import Test2 from "./components/apps/Info.vue"
+import Browser from "./components/apps/Browser.vue"
+import AppConsole from "./components/apps/AppConsole.vue"
+import AppVscode from "./components/apps/AppVscode.vue"
 import GitStars from "./components/apps/GitStars.vue"
-import GotoAdminVue from './components/apps/GotoAdmin.vue';
 import GotoReadMe from './components/apps/GotoReadMe.vue';
 
 
@@ -84,7 +69,7 @@ AddToDesktop({
       icon: brower,
       width: 800,
       height: 600,
-      content: Test3,
+      content: Browser,
     })
 
 });
@@ -96,7 +81,7 @@ AddToDesktop({
     icon: term,
     width: 400,
     height: 400,
-    content: app_console,
+    content: AppConsole,
     isScalable: false
   })
 
@@ -109,28 +94,10 @@ AddToDesktop({
     icon: vscode,
     width: 600,
     height: 500,
-    content: app_vscode
+    content: AppVscode
   })
 
 });
-// AddToDesktop({
-//   name: '窗口通信',
-//   icon: signalicon,
-//   window: new DragWindow({
-//     title: '窗口通信',
-//     icon: signalicon,
-//     width: 170,
-//     height: 100,
-//     content: Adm_loading
-//   })
-// });
-// AddToDesktop({
-//   name: '前往后台管理样例',
-//   icon: backicon,
-//   width: 170,
-//   height: 100,
-//   tmp: GotoAdminVue
-// });
 AddToDesktop({
   name: '点个star',
   icon: GitHub,

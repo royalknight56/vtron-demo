@@ -1,8 +1,7 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2022-01-28 10:35:17
- * @Description: 
- * @FilePath: /publishTest/src/components/apps/Test3.vue
+ * @LastEditTime: 2022-03-03 10:02:43
+ * @Description: 这是个未完成的浏览器窗口
 -->
 <template>
     <div class="outer">
