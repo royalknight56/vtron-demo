@@ -1,19 +1,17 @@
 <!--
- * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2022-03-03 10:09:11
+ * @Author: Royal
+ * @LastEditTime: 2022-03-04 17:40:15
  * @Description: 
- * @FilePath: /publishTest/src/App.vue
 -->
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-  <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
   <div class="outer">
     <Win10></Win10>
+    <!-- 一定需要引入Win10组件，组件已经在use时注册了 -->
   </div>
 </template>
 
 <script lang="ts" setup>
-import { AddToDesktop, ClearDesktop,DragWindow } from "vue3-win10";
+import { AddToDesktop, ClearDesktop,DragWindow } from "vue3-win10";//从包中引入窗口类
 
 import computer from "./assets/computer.ico"
 import beat from "./assets/beat.ico"
@@ -32,18 +30,19 @@ import AppVscode from "./components/apps/AppVscode.vue"
 import GitStars from "./components/apps/GitStars.vue"
 import GotoReadMe from './components/apps/GotoReadMe.vue';
 
-
+// 在App中组织桌面图标
+// 先清空再添加，防止热更新加入多重图标
 ClearDesktop();
 AddToDesktop({
-  name: '我的电脑',
-  icon: computer,
+  name: '我的电脑',//这里是桌面显示的名称
+  icon: computer,//这里是桌面显示的图标
   window: new DragWindow(
     {
-      title: '我的电脑',
-      icon: computer,
+      title: '我的电脑',//这里是打开之后的窗口显示的名称
+      icon: computer,//这里是打开之后的窗口左上角的图标
       width: 400,
       height: 400,
-      content: MyComputer
+      content: MyComputer//这里引入编写好的vue文件，就是窗口的内容
     })
 });
 
