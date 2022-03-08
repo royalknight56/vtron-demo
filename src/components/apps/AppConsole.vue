@@ -1,6 +1,6 @@
 <!--
  * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-12-06 15:43:09
+ * @LastEditTime: 2022-03-08 21:07:40
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/app_console.vue
 -->
@@ -92,6 +92,7 @@ onMounted(() => {
     font-family: monospace;
     font-size: 10px;
     overflow: auto;
+    overflow-x: hidden;
 }
 textarea {
     height: min-content;

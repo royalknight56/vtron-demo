@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-03-04 17:40:15
+ * @LastEditTime: 2022-03-08 21:06:59
  * @Description: 
 -->
 <template>
@@ -78,8 +78,8 @@ AddToDesktop({
   window: new DragWindow({
     title: '终端',
     icon: term,
-    width: 400,
-    height: 400,
+    width: 740,
+    height: 620,
     content: AppConsole,
     isScalable: false
   })
