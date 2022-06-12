@@ -1,6 +1,6 @@
 /*
  * @Author: Royal
- * @LastEditTime: 2022-03-04 17:41:50
+ * @LastEditTime: 2022-06-12 12:53:13
  * @Description: 在main中引入vue3-win10，并use
  */
 import { createApp } from 'vue'
