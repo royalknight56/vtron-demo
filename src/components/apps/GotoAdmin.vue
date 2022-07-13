@@ -1,5 +1,5 @@
 <!--
- * @Author: zhangweiyuan-Royal
+ * @Author: Royal
  * @LastEditTime: 2021-09-18 18:48:54
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/GotoAdmin.vue

@@ -1,5 +1,5 @@
 <!--
- * @Author: zhangweiyuan-Royal
+ * @Author: Royal
  * @LastEditTime: 2022-01-28 17:06:01
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/GitStars.vue

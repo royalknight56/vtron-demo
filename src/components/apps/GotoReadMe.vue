@@ -1,5 +1,5 @@
 <!--
- * @Author: zhangweiyuan-Royal
+ * @Author: Royal
  * @LastEditTime: 2022-01-13 17:13:04
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/GotoReadMe.vue

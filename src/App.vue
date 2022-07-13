@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-06-12 13:00:35
+ * @LastEditTime: 2022-07-13 17:00:58
  * @Description: 1
 -->
 <template>
@@ -26,7 +26,6 @@ import MyComputer from "./components/apps/MyComputer.vue"
 import Test2 from "./components/apps/Info.vue"
 import Browser from "./components/apps/Browser.vue"
 import AppConsole from "./components/apps/AppConsole.vue"
-import AppVscode from "./components/apps/AppVscode.vue"
 import GitStars from "./components/apps/GitStars.vue"
 import GotoReadMe from './components/apps/GotoReadMe.vue';
 
@@ -93,7 +92,7 @@ AddToDesktop({
     icon: vscode,
     width: 600,
     height: 500,
-    content: AppVscode
+    content: 'https://github1s.com/'
   })
 
 });

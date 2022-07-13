@@ -1,5 +1,5 @@
 <!--
- * @Author: zhangweiyuan-Royal
+ * @Author: Royal
  * @LastEditTime: 2021-08-06 09:36:29
  * @Description: 
  * @FilePath: /myindex/src/components/window/apps/Help.vue

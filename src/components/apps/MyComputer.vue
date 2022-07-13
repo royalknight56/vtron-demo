@@ -1,6 +1,6 @@
 <!--
- * @Author: zhangweiyuan-Royal
- * @LastEditTime: 2021-12-17 19:06:59
+ * @Author: Royal
+ * @LastEditTime: 2022-07-13 16:51:07
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/MyComputer.vue
 -->
@@ -119,15 +119,7 @@ let router_url = computed(() => {
     }
     return path;
 })
-// let currentList: UnwrapNestedRefs<Array<Folder>> = reactive([])
-// currentList.push(...folder.children||[])
-
 let currentList = computed(() => {
-    // let list: Array<Folder> = [];
-    // let currentFolder = folderStack[folderStack.length - 1];
-    // if (currentFolder) {
-    //     list = currentFolder.children || [];
-    // }
     return folderStack[folderStack.length - 1].children;
 })
 // 找到id的文件夹
@@ -187,8 +179,6 @@ function openFile(folder: Folder) {
 function backFolder() {
     if (folderStack.length > 1) {
         folderStack.pop();
-        // currentList.splice(0, currentList.length);
-        // currentList.push(...folderStack[folderStack.length - 1].children||[])
     }
 }
 // 新建文件夹
@@ -199,28 +189,22 @@ function newFolder(name = '新建文件夹', children = []) {
         id: getFolderID(),
     }
     folderStack[folderStack.length - 1].children?.push(newF)
-    // currentList.push(newF)
 }
 
 
 function newFile(name: string, icon: string) {
     let newF = {
         name: name,
-        // children: [],
         id: getFolderID(),
         type: 'image',
         icon: icon
     }
     folderStack[folderStack.length - 1].children?.push(newF)
-    // currentList.push(newF)
 }
 function startDrag(ev: DragEvent, item: Folder) {
     ev?.dataTransfer?.setData('fromobj', 'web');
     ev?.dataTransfer?.setData('frominfo', JSON.stringify(item));
     ev?.dataTransfer?.setData('fromid', item.id.toString());
-    // console.log(ev?.dataTransfer)
-    // console.log(item)
-    // ev?.dataTransfer?.setData('text', ev.target.id);
 }
 
 // 拖到文件放下时
