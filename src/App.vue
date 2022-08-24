@@ -5,14 +5,12 @@
 -->
 <template>
   <div class="outer">
-    <Win10></Win10>
+    <Win10 :system="system"></Win10>
     <!-- 一定需要引入Win10组件，组件已经在use时注册了 -->
   </div>
 </template>
 
 <script lang="ts" setup>
-import { AddToDesktop, ClearDesktop,DragWindow } from "vue3-win10";//从包中引入窗口类
-
 import computer from "./assets/computer.ico"
 import beat from "./assets/beat.ico"
 import brower from "./assets/brow.png"
@@ -29,14 +27,14 @@ import AppConsole from "./components/apps/AppConsole.vue"
 import AppVscode from "./components/apps/AppVscode.vue"
 import GitStars from "./components/apps/GitStars.vue"
 import GotoReadMe from './components/apps/GotoReadMe.vue';
-
+import {system} from './system'
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
-ClearDesktop();
-AddToDesktop({
+system.ClearDesktop();
+system.AddToDesktop({
   name: '我的电脑',//这里是桌面显示的名称
   icon: computer,//这里是桌面显示的图标
-  window: new DragWindow(
+  window: system.DragWindow(
     {
       title: '我的电脑',//这里是打开之后的窗口显示的名称
       icon: computer,//这里是打开之后的窗口左上角的图标
@@ -46,10 +44,10 @@ AddToDesktop({
     })
 });
 
-AddToDesktop({
+system.AddToDesktop({
   name: '版本信息',
   icon: beat,
-  window: new DragWindow(
+  window: system.DragWindow(
     {
       title: '版本信息',
       icon: beat,
@@ -59,10 +57,10 @@ AddToDesktop({
       isScalable: false
     })
 });
-AddToDesktop({
+system.AddToDesktop({
   name: '浏览器',
   icon: brower,
-  window: new DragWindow(
+  window: system.DragWindow(
     {
       title: '浏览器',
       icon: brower,
@@ -72,10 +70,10 @@ AddToDesktop({
     })
 
 });
-AddToDesktop({
+system.AddToDesktop({
   name: '终端',
   icon: term,
-  window: new DragWindow({
+  window: system.DragWindow({
     title: '终端',
     icon: term,
     width: 400,
@@ -85,10 +83,10 @@ AddToDesktop({
   })
 
 });
-AddToDesktop({
+system.AddToDesktop({
   name: 'vscode',
   icon: vscode,
-  window: new DragWindow({
+  window: system.DragWindow({
     title: 'vscode',
     icon: vscode,
     width: 600,
@@ -97,10 +95,10 @@ AddToDesktop({
   })
 
 });
-AddToDesktop({
+system.AddToDesktop({
   name: '点个star',
   icon: GitHub,
-  window: new DragWindow({
+  window: system.DragWindow({
     title: '点个star',
     icon: GitHub,
     width: 170,
@@ -108,10 +106,10 @@ AddToDesktop({
     content: GitStars
   })
 });
-AddToDesktop({
+system.AddToDesktop({
   name: '文档',
   icon: winicon,
-  window: new DragWindow({
+  window: system.DragWindow({
     title: '文档',
     icon: winicon,
     width: 170,
