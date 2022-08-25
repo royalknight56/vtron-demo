@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-07-13 17:00:58
+ * @LastEditTime: 2022-08-25 15:40:37
  * @Description: 1
 -->
 <template>
@@ -11,13 +11,13 @@
 </template>
 
 <script lang="ts" setup>
-import computer from "./assets/computer.ico"
-import beat from "./assets/beat.ico"
-import brower from "./assets/brow.png"
-import term from "./assets/term.ico"
-import vscode from "./assets/vscode.png"
-import GitHub from "./assets/GitHub.png"
-import winicon from "./assets/win.png"
+import computer from "./assets/computer.ico";
+import beat from "./assets/beat.ico";
+import brower from "./assets/brow.png";
+import term from "./assets/term.ico";
+import vscode from "./assets/vscode.png";
+import GitHub from "./assets/GitHub.png";
+import winicon from "./assets/win.png";
 
 
 import MyComputer from "./components/apps/MyComputer.vue"
