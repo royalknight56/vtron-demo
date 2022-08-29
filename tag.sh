@@ -16,4 +16,4 @@ function tag() {
     git tag $new_tag
     git push origin $new_tag
 }
-mitag
+tag
