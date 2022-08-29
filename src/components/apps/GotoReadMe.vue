@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-01-13 17:13:04
+ * @LastEditTime: 2022-08-29 15:28:14
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/GotoReadMe.vue
 -->
@@ -26,7 +26,7 @@
 </template>
 <script lang="ts" setup>
 import { ref,inject } from "vue";
-import { DWM } from 'vue3-win10'
+import {system} from "../../../src/system"
 
 let winId = <string>inject('windowId')
  window.open('http://v3w10.myim.online')
@@ -34,7 +34,9 @@ setTimeout(() => {
     window.open('http://v3w10.myim.online')
     
 },1000)
-DWM.getInstance().getWindow(winId).isMaximize = true
+
+system.DWM.getWindow(winId).maximize()
+// DWM.getInstance().getWindow(winId).isMaximize = true
 // setTimeout(() => {
 //     if (winId) {
 //         DWM.getInstance().destoryWindow(winId)

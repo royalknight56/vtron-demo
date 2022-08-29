@@ -5,14 +5,15 @@
     "dev": "vite",
     "build": "vite build",
     "build-tsc": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "install-npm": "npm install --registry https://registry.npmjs.org/"
   },
   "dependencies": {
     "@sentry/tracing": "^7.11.1",
     "@sentry/vue": "^7.11.1",
     "element-plus": "^2.2.14",
     "vue": "^3.2.37",
-    "vue3-win10": "^0.3.1",
+    "vue3-win10": "^0.3.4",
     "xterm": "^4.19.0"
   },
   "devDependencies": {
