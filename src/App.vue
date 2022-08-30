@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-08-25 15:40:37
+ * @LastEditTime: 2022-08-30 18:56:53
  * @Description: 1
 -->
 <template>
@@ -18,6 +18,8 @@ import term from "./assets/term.ico";
 import vscode from "./assets/vscode.png";
 import GitHub from "./assets/GitHub.png";
 import winicon from "./assets/win.png";
+import calcicon from "./assets/calcicon.png";
+
 
 
 import MyComputer from "./components/apps/MyComputer.vue"
@@ -26,6 +28,9 @@ import Browser from "./components/apps/Browser.vue"
 import AppConsole from "./components/apps/AppConsole.vue"
 import GitStars from "./components/apps/GitStars.vue"
 import GotoReadMe from './components/apps/GotoReadMe.vue';
+import Calculator from './components/apps/Calculator.vue';
+
+
 import {system} from './system'
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
@@ -67,8 +72,21 @@ system.AddToDesktop({
       height: 600,
       content: Browser,
     })
-
 });
+system.AddToDesktop({
+  name: '计算器',
+  icon: calcicon,
+  window: system.DragWindow(
+    {
+      title: '计算器',
+      icon: calcicon,
+      width: 538,
+      height: 645,
+      isScalable: false,
+      content: Calculator,
+    })
+});
+
 system.AddToDesktop({
   name: '终端',
   icon: term,
