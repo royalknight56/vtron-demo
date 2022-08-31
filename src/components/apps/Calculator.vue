@@ -501,7 +501,7 @@ html, body {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 1.3rem;
   font-weight: 100;
-  padding: 20px 0;
+  padding: 10px 0;
   background-color: #d9d9d9;
   color: #111111;
   -webkit-transition: 0.25s;

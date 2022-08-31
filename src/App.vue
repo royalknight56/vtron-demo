@@ -80,8 +80,8 @@ system.AddToDesktop({
     {
       title: '计算器',
       icon: calcicon,
-      width: 538,
-      height: 645,
+      width: 332,
+      height: 515,
       isScalable: false,
       content: Calculator,
     })
