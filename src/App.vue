@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-08-30 18:56:53
+ * @LastEditTime: 2022-08-31 19:18:49
  * @Description: 1
 -->
 <template>
@@ -17,7 +17,9 @@ import brower from "./assets/brow.png";
 import term from "./assets/term.ico";
 import vscode from "./assets/vscode.png";
 import GitHub from "./assets/GitHub.png";
-import winicon from "./assets/win.png";
+// import winicon from "./assets/win.png";
+import winv3icon from "./assets/winv3.png";
+
 import calcicon from "./assets/calcicon.png";
 
 
@@ -125,10 +127,10 @@ system.AddToDesktop({
 });
 system.AddToDesktop({
   name: '文档',
-  icon: winicon,
+  icon: winv3icon,
   window: system.DragWindow({
     title: '文档',
-    icon: winicon,
+    icon: winv3icon,
     width: 170,
     height: 100,
     content: GotoReadMe
