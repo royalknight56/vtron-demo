@@ -95,8 +95,8 @@ system.AddToDesktop({
   window: system.DragWindow({
     title: '终端',
     icon: term,
-    width: 740,
-    height: 620,
+    width: 720,
+    height: 400,
     content: AppConsole,
     isScalable: false
   })
