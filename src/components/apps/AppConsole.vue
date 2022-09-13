@@ -38,7 +38,7 @@ console.log('onUnmounted');
 onMounted(() => {
     term = new Terminal({
         rendererType: "canvas", //渲染类型
-        rows: 35, //行数
+        rows: 20, //行数
         convertEol: true, //启用时，光标将设置为下一行的开头
         scrollback: 10, //终端中的回滚量
         disableStdin: false, //是否应禁用输入

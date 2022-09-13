@@ -88,7 +88,7 @@ iframe {
     font-size: 12px;
     height: 46px;
     padding: 8px 3px 4px 3px;
-    background: #f2f4f7;
+    background: #ffffff;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
 }
@@ -96,13 +96,14 @@ iframe {
     margin: 0px 10px;
     padding: 0px 10px;
     border-radius: 60px;
-    border: 0px solid rgba(0, 0, 0, 0.295);
+    border: 3px solid rgba(255, 255, 255, 0);
     background: #e7e9ecbd;
     outline: none;
     width: 100%;
 }
 .urlinput:focus{
     background: #ffffffd8;
+    border: 3px solid rgb(61, 177, 255);
 }
 .uper_button{
     width: 30px;
