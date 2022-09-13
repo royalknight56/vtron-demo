@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-08-31 19:18:49
+ * @LastEditTime: 2022-09-08 10:51:02
  * @Description: 1
 -->
 <template>
@@ -14,6 +14,8 @@
 import computer from "./assets/computer.ico";
 import beat from "./assets/beat.ico";
 import brower from "./assets/brow.png";
+import chromeicon from "./assets/chromeicon.png";
+
 import term from "./assets/term.ico";
 import vscode from "./assets/vscode.png";
 import GitHub from "./assets/GitHub.png";
@@ -37,10 +39,8 @@ import {system} from './system'
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
 system.ClearDesktop();
-system.AddToDesktop({
-  name: '我的电脑',//这里是桌面显示的名称
-  icon: computer,//这里是桌面显示的图标
-  window: system.DragWindow(
+
+let MyComputerWindow = system.DragWindow(
     {
       title: '我的电脑',//这里是打开之后的窗口显示的名称
       icon: computer,//这里是打开之后的窗口左上角的图标
@@ -48,9 +48,24 @@ system.AddToDesktop({
       height: 400,
       content: MyComputer//这里引入编写好的vue文件，就是窗口的内容
     })
-});
 
 system.AddToDesktop({
+  name: '我的电脑',//这里是桌面显示的名称
+  icon: computer,//这里是桌面显示的图标
+  window: MyComputerWindow
+});
+system.AddToStartupList({
+  name: '我的电脑',//这里是桌面显示的名称
+  icon: computer,//这里是桌面显示的图标
+  window: MyComputerWindow
+});
+system.AddToMagnet({
+  name: '我的电脑',//这里是桌面显示的名称
+  icon: computer,//这里是桌面显示的图标
+  window: MyComputerWindow
+});
+
+system.AddToStartupList({
   name: '版本信息',
   icon: beat,
   window: system.DragWindow(
@@ -65,17 +80,17 @@ system.AddToDesktop({
 });
 system.AddToDesktop({
   name: '浏览器',
-  icon: brower,
+  icon: chromeicon,
   window: system.DragWindow(
     {
       title: '浏览器',
-      icon: brower,
+      icon: chromeicon,
       width: 800,
       height: 600,
       content: Browser,
     })
 });
-system.AddToDesktop({
+system.AddToMagnet({
   name: '计算器',
   icon: calcicon,
   window: system.DragWindow(
