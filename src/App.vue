@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-09-08 10:51:02
+ * @LastEditTime: 2022-09-13 15:12:13
  * @Description: 1
 -->
 <template>
@@ -35,35 +35,37 @@ import GotoReadMe from './components/apps/GotoReadMe.vue';
 import Calculator from './components/apps/Calculator.vue';
 
 
-import {system} from './system'
+import { system } from './system'
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
 system.ClearDesktop();
+system.ClearMagnet();
+system.ClearStartupList()
 
 let MyComputerWindow = system.DragWindow(
-    {
-      title: '我的电脑',//这里是打开之后的窗口显示的名称
-      icon: computer,//这里是打开之后的窗口左上角的图标
-      width: 400,
-      height: 400,
-      content: MyComputer//这里引入编写好的vue文件，就是窗口的内容
-    })
+  {
+    title: '我的电脑',//这里是打开之后的窗口显示的名称
+    icon: computer,//这里是打开之后的窗口左上角的图标
+    width: 400,
+    height: 400,
+    content: MyComputer//这里引入编写好的vue文件，就是窗口的内容
+  })
 
-system.AddToDesktop({
-  name: '我的电脑',//这里是桌面显示的名称
-  icon: computer,//这里是桌面显示的图标
-  window: MyComputerWindow
-});
-system.AddToStartupList({
-  name: '我的电脑',//这里是桌面显示的名称
-  icon: computer,//这里是桌面显示的图标
-  window: MyComputerWindow
-});
-system.AddToMagnet({
-  name: '我的电脑',//这里是桌面显示的名称
-  icon: computer,//这里是桌面显示的图标
-  window: MyComputerWindow
-});
+// system.AddToDesktop({
+//   name: '我的电脑',//这里是桌面显示的名称
+//   icon: computer,//这里是桌面显示的图标
+//   window: MyComputerWindow
+// });
+// system.AddToStartupList({
+//   name: '我的电脑',//这里是桌面显示的名称
+//   icon: computer,//这里是桌面显示的图标
+//   window: MyComputerWindow
+// });
+// system.AddToMagnet({
+//   name: '我的电脑',//这里是桌面显示的名称
+//   icon: computer,//这里是桌面显示的图标
+//   window: MyComputerWindow
+// });
 
 system.AddToStartupList({
   name: '版本信息',
@@ -90,20 +92,25 @@ system.AddToDesktop({
       content: Browser,
     })
 });
+let calcWind = system.DragWindow(
+  {
+    title: '计算器',
+    icon: calcicon,
+    width: 332,
+    height: 515,
+    isScalable: false,
+    content: Calculator,
+  })
 system.AddToMagnet({
   name: '计算器',
   icon: calcicon,
-  window: system.DragWindow(
-    {
-      title: '计算器',
-      icon: calcicon,
-      width: 332,
-      height: 515,
-      isScalable: false,
-      content: Calculator,
-    })
+  window: calcWind
 });
-
+system.AddToStartupList({
+  name: '计算器',
+  icon: calcicon,
+  window: calcWind
+})
 system.AddToDesktop({
   name: '终端',
   icon: term,
@@ -160,6 +167,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
