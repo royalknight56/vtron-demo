@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-09-13 15:12:13
+ * @LastEditTime: 2022-09-23 14:52:18
  * @Description: 1
 -->
 <template>
@@ -117,8 +117,8 @@ system.AddToDesktop({
   window: system.DragWindow({
     title: '终端',
     icon: term,
-    width: 720,
-    height: 400,
+    width: 600,
+    height: 370,
     content: AppConsole,
     isScalable: false
   })
