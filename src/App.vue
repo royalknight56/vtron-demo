@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-09-23 14:52:18
+ * @LastEditTime: 2022-09-23 15:15:10
  * @Description: 1
 -->
 <template>
@@ -19,7 +19,7 @@ import chromeicon from "./assets/chromeicon.png";
 import term from "./assets/term.ico";
 import vscode from "./assets/vscode.png";
 import GitHub from "./assets/GitHub.png";
-// import winicon from "./assets/win.png";
+import winicon from "./assets/win.png";
 import winv3icon from "./assets/winv3.png";
 
 import calcicon from "./assets/calcicon.png";
@@ -33,6 +33,8 @@ import AppConsole from "./components/apps/AppConsole.vue"
 import GitStars from "./components/apps/GitStars.vue"
 import GotoReadMe from './components/apps/GotoReadMe.vue';
 import Calculator from './components/apps/Calculator.vue';
+import APIVue from './components/apps/API.vue';
+
 
 
 import { system } from './system'
@@ -92,6 +94,7 @@ system.AddToDesktop({
       content: Browser,
     })
 });
+
 let calcWind = system.DragWindow(
   {
     title: '计算器',
@@ -135,6 +138,19 @@ system.AddToDesktop({
     content: 'https://github1s.com/'
   })
 
+});
+system.AddToDesktop({
+  name: '功能与API',
+  icon: winicon,
+  window: system.DragWindow(
+    {
+      title: '功能与API演示',
+      icon: winicon,
+      width: 300,
+      height: 300,
+      center:true,
+      content: APIVue,
+    })
 });
 system.AddToDesktop({
   name: '点个star',

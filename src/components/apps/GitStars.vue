@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-08-29 15:18:54
+ * @LastEditTime: 2022-09-23 14:57:12
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/GitStars.vue
 -->
@@ -18,7 +18,7 @@ setTimeout(() => {
 })
 setTimeout(() => {
     if (winId) {
-        system.DWM.getWindow(winId).destroy()
+        system.getWindow(winId)?.destroy()
     }
 },5000)
 
