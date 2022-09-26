@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-09-23 15:15:10
+ * @LastEditTime: 2022-09-26 17:06:14
  * @Description: 1
 -->
 <template>
@@ -21,7 +21,7 @@ import vscode from "./assets/vscode.png";
 import GitHub from "./assets/GitHub.png";
 import winicon from "./assets/win.png";
 import winv3icon from "./assets/winv3.png";
-
+import mmPlayericon from "./assets/mmPlayer.png";
 import calcicon from "./assets/calcicon.png";
 
 
@@ -91,6 +91,7 @@ system.AddToDesktop({
       icon: chromeicon,
       width: 800,
       height: 600,
+      center:true,
       content: Browser,
     })
 });
@@ -133,8 +134,9 @@ system.AddToDesktop({
   window: system.DragWindow({
     title: 'vscode',
     icon: vscode,
-    width: 600,
-    height: 500,
+    width: 800,
+    height: 700,
+    center:true,
     content: 'https://github1s.com/'
   })
 
@@ -150,6 +152,19 @@ system.AddToDesktop({
       height: 300,
       center:true,
       content: APIVue,
+    })
+});
+system.AddToDesktop({
+  name: 'mmPlayer',
+  icon: mmPlayericon,
+  window: system.DragWindow(
+    {
+      title: 'mmPlayer',
+      icon: mmPlayericon,
+      width: 850,
+      height: 500,
+      center:true,
+      content: "https://netease-music.fe-mm.com/",
     })
 });
 system.AddToDesktop({

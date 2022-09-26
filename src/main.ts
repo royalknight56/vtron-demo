@@ -1,6 +1,6 @@
 /*
  * @Author: Royal
- * @LastEditTime: 2022-08-01 14:48:12
+ * @LastEditTime: 2022-09-26 17:02:38
  * @Description: 在main中引入vue3-win10，并use
  */
 import { createApp } from 'vue'
@@ -9,8 +9,8 @@ import App from './App.vue'
 import win10 from 'vue3-win10';
 import "vue3-win10/distlib/style.css";
 
-import ElementPlus from 'element-plus';
-import 'element-plus/dist/index.css'
+// import ElementPlus from 'element-plus';
+// import 'element-plus/dist/index.css'
 import 'xterm/css/xterm.css'
 import backimg from "./assets/back.jpg"
 
@@ -24,7 +24,7 @@ app.use(win10, {
     start_time: 1200,
     // start_menu_logo: menuicon,
     backimg: backimg,
-}).use(ElementPlus).mount('#app')
+}).mount('#app')
 
 Sentry.init({
     app,
