@@ -23,6 +23,8 @@ import winicon from "./assets/win.png";
 import winv3icon from "./assets/winv3.png";
 import mmPlayericon from "./assets/mmPlayer.png";
 import calcicon from "./assets/calcicon.png";
+import todoappicon from "./assets/todoapp.png";
+
 
 
 
@@ -166,6 +168,18 @@ system.AddToDesktop({
       center:true,
       content: "https://netease-music.fe-mm.com/",
     })
+});
+system.AddToDesktop({
+  name: '咕噜Todo',
+  icon: todoappicon,
+  window: system.DragWindow({
+    title: '咕噜Todo',
+    icon: todoappicon,
+    width: 800,
+    height: 600,
+    center:true,
+    content: "https://groupgroupgroup.group"
+  })
 });
 system.AddToDesktop({
   name: '点个star',
