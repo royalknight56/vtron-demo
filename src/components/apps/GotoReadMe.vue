@@ -1,6 +1,6 @@
 <!--
  * @Author: Royal
- * @LastEditTime: 2022-08-29 15:28:14
+ * @LastEditTime: 2022-10-25 13:51:37
  * @Description: 
  * @FilePath: /publishTest/src/components/apps/GotoReadMe.vue
 -->
@@ -35,7 +35,7 @@ setTimeout(() => {
     
 },1000)
 
-system.DWM.getWindow(winId).maximize()
+system.getWindow(winId)?.maximize()
 // DWM.getInstance().getWindow(winId).isMaximize = true
 // setTimeout(() => {
 //     if (winId) {
