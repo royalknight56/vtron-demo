@@ -37,7 +37,8 @@ let config = [
         width: 800,
         height: 700,
         center: true,
-        content: 'https://github1s.com/'
+        content: 'https://github1s.com/',
+        isScalable: true
     },
     {
         title: '功能与API',
@@ -46,6 +47,7 @@ let config = [
         height: 300,
         center: true,
         content: APIVue,
+        isScalable: true
     },
     {
         title: 'mmPlayer',
@@ -54,6 +56,7 @@ let config = [
         height: 500,
         center: true,
         content: "https://netease-music.fe-mm.com/",
+        isScalable: true
     },
     {
         title: '咕噜Todo',
@@ -61,7 +64,8 @@ let config = [
         width: 800,
         height: 600,
         center: true,
-        content: "https://groupgroupgroup.group"
+        content: "https://groupgroupgroup.group",
+        isScalable: true
     },
     {
         title: '看月亮',
@@ -69,7 +73,8 @@ let config = [
         width: 800,
         height: 600,
         center: true,
-        content: "http://static.myim.online/moon/"
+        content: "http://static.myim.online/moon/",
+        isScalable: true
     },
     {
         title: '点个star',
@@ -83,7 +88,8 @@ let config = [
         icon: winv3icon,
         width: 170,
         height: 100,
-        content: GotoReadMe
+        content: GotoReadMe,
+        isScalable: true
     },
     {
         title: '浏览器',
@@ -92,6 +98,7 @@ let config = [
         height: 600,
         center: true,
         content: Browser,
+        isScalable: true
     }  
 ]
 export default config
