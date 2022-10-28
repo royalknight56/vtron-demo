@@ -11,9 +11,9 @@
 </template>
 
 <script lang="ts" setup>
-import computer from "./assets/computer.ico";
+// import computer from "./assets/computer.ico";
 import beat from "./assets/beat.ico";
-import brower from "./assets/brow.png";
+// import brower from "./assets/brow.png";
 import chromeicon from "./assets/chromeicon.png";
 
 import term from "./assets/term.ico";
@@ -24,11 +24,11 @@ import winv3icon from "./assets/winv3.png";
 import mmPlayericon from "./assets/mmPlayer.png";
 import calcicon from "./assets/calcicon.png";
 import todoappicon from "./assets/todoapp.png";
+import moonappicon from './assets/moonappicon.webp'
 
 
 
-
-import MyComputer from "./components/apps/MyComputer.vue"
+// import MyComputer from "./components/apps/MyComputer.vue"
 import Test2 from "./components/apps/Info.vue"
 import Browser from "./components/apps/Browser.vue"
 import AppConsole from "./components/apps/AppConsole.vue"
@@ -37,7 +37,7 @@ import GotoReadMe from './components/apps/GotoReadMe.vue';
 import Calculator from './components/apps/Calculator.vue';
 import APIVue from './components/apps/API.vue';
 
-
+import desktopConfig from "./DesktopSet"
 
 import { system } from './system'
 // 在App中组织桌面图标
@@ -45,32 +45,23 @@ import { system } from './system'
 system.ClearDesktop();
 system.ClearMagnet();
 system.ClearStartupList()
-
-let MyComputerWindow = system.DragWindow(
-  {
-    title: '我的电脑',//这里是打开之后的窗口显示的名称
-    icon: computer,//这里是打开之后的窗口左上角的图标
-    width: 400,
-    height: 400,
-    content: MyComputer//这里引入编写好的vue文件，就是窗口的内容
+function addListToDesktop(list: typeof desktopConfig) {
+  list.forEach((item) => {
+    system.AddToDesktop({
+      name: item.title,
+      icon: item.icon,
+      window: system.DragWindow({
+        title: item.title,
+        icon: item.icon,
+        width: item.width,
+        height: item.height,
+        content: item.content,
+        isScalable: item.isScalable
+      })
+    })
   })
-
-// system.AddToDesktop({
-//   name: '我的电脑',//这里是桌面显示的名称
-//   icon: computer,//这里是桌面显示的图标
-//   window: MyComputerWindow
-// });
-// system.AddToStartupList({
-//   name: '我的电脑',//这里是桌面显示的名称
-//   icon: computer,//这里是桌面显示的图标
-//   window: MyComputerWindow
-// });
-// system.AddToMagnet({
-//   name: '我的电脑',//这里是桌面显示的名称
-//   icon: computer,//这里是桌面显示的图标
-//   window: MyComputerWindow
-// });
-
+}
+addListToDesktop(desktopConfig)
 system.AddToStartupList({
   name: '版本信息',
   icon: beat,
@@ -84,20 +75,6 @@ system.AddToStartupList({
       isScalable: false
     })
 });
-system.AddToDesktop({
-  name: '浏览器',
-  icon: chromeicon,
-  window: system.DragWindow(
-    {
-      title: '浏览器',
-      icon: chromeicon,
-      width: 800,
-      height: 600,
-      center:true,
-      content: Browser,
-    })
-});
-
 let calcWind = system.DragWindow(
   {
     title: '计算器',
@@ -117,93 +94,6 @@ system.AddToStartupList({
   icon: calcicon,
   window: calcWind
 })
-system.AddToDesktop({
-  name: '终端',
-  icon: term,
-  window: system.DragWindow({
-    title: '终端',
-    icon: term,
-    width: 600,
-    height: 370,
-    content: AppConsole,
-    isScalable: false
-  })
-
-});
-system.AddToDesktop({
-  name: 'vscode',
-  icon: vscode,
-  window: system.DragWindow({
-    title: 'vscode',
-    icon: vscode,
-    width: 800,
-    height: 700,
-    center:true,
-    content: 'https://github1s.com/'
-  })
-
-});
-system.AddToDesktop({
-  name: '功能与API',
-  icon: winicon,
-  window: system.DragWindow(
-    {
-      title: '功能与API演示',
-      icon: winicon,
-      width: 300,
-      height: 300,
-      center:true,
-      content: APIVue,
-    })
-});
-system.AddToDesktop({
-  name: 'mmPlayer',
-  icon: mmPlayericon,
-  window: system.DragWindow(
-    {
-      title: 'mmPlayer',
-      icon: mmPlayericon,
-      width: 850,
-      height: 500,
-      center:true,
-      content: "https://netease-music.fe-mm.com/",
-    })
-});
-system.AddToDesktop({
-  name: '咕噜Todo',
-  icon: todoappicon,
-  window: system.DragWindow({
-    title: '咕噜Todo',
-    icon: todoappicon,
-    width: 800,
-    height: 600,
-    center:true,
-    content: "https://groupgroupgroup.group"
-  })
-});
-system.AddToDesktop({
-  name: '点个star',
-  icon: GitHub,
-  window: system.DragWindow({
-    title: '点个star',
-    icon: GitHub,
-    width: 170,
-    height: 100,
-    content: GitStars
-  })
-});
-system.AddToDesktop({
-  name: '文档',
-  icon: winv3icon,
-  window: system.DragWindow({
-    title: '文档',
-    icon: winv3icon,
-    width: 170,
-    height: 100,
-    content: GotoReadMe
-  })
-});
-
 
 </script>
 
