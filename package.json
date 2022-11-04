@@ -2,7 +2,7 @@
   "name": "pkg",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --force",
     "build": "vite build",
     "build-tsc": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
@@ -13,7 +13,7 @@
     "@sentry/vue": "^7.11.1",
     "element-plus": "^2.2.14",
     "vue": "^3.2.37",
-    "vue3-win10": "0.3.8",
+    "vue3-win10": "0.4.0",
     "xterm": "^4.19.0"
   },
   "devDependencies": {
