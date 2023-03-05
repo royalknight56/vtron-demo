@@ -29,7 +29,7 @@ let config = [
         width: 600,
         height: 370,
         content: AppConsole,
-        isScalable: false
+        resizable: false
     },
     {
         title: 'vscode',
@@ -38,7 +38,7 @@ let config = [
         height: 700,
         center: true,
         content: 'https://github1s.com/',
-        isScalable: true
+        resizable: true
     },
     {
         title: '功能与API',
@@ -47,7 +47,7 @@ let config = [
         height: 300,
         center: true,
         content: APIVue,
-        isScalable: true
+        resizable: true
     },
     {
         title: 'mmPlayer',
@@ -56,7 +56,7 @@ let config = [
         height: 500,
         center: true,
         content: "https://netease-music.fe-mm.com/",
-        isScalable: true
+        resizable: true
     },
     {
         title: '咕噜Todo',
@@ -65,7 +65,7 @@ let config = [
         height: 600,
         center: true,
         content: "https://groupgroupgroup.group",
-        isScalable: true
+        resizable: true
     },
     {
         title: '看月亮',
@@ -74,7 +74,7 @@ let config = [
         height: 600,
         center: true,
         content: "http://static.myim.online/moon/",
-        isScalable: true
+        resizable: true
     },
     {
         title: '点个star',
@@ -89,7 +89,7 @@ let config = [
         width: 170,
         height: 100,
         content: GotoReadMe,
-        isScalable: true
+        resizable: true
     },
     {
         title: '浏览器',
@@ -98,7 +98,7 @@ let config = [
         height: 600,
         center: true,
         content: Browser,
-        isScalable: true
+        resizable: true
     }  
 ]
 export default config

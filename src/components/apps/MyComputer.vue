@@ -50,7 +50,7 @@
                 <span>{{ router_url }}</span>
             </div>
             <div @focusout="end_input()" v-if="path_state == 'inputing'" class="path_inputing">
-                <input v-auto-focus="this" :value="router_url" />
+                <input :value="router_url" />
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
 <script lang="ts" setup>
 
 import { ref, reactive, computed, onMounted } from "vue";
-import type { UnwrapNestedRefs } from "@vue/reactivity";
+import type { UnwrapNestedRefs } from "vue";
 import folderimg from "../../assets/winFloder.ico"
 interface Folder {
     name: string,
@@ -96,11 +96,6 @@ let folder: Folder = {
         id: getFolderID(),
         children: [{
             name: 'Administrator',
-            id: getFolderID(),
-            children: []
-        },
-        {
-            name: '12',
             id: getFolderID(),
             children: []
         }],

@@ -13,9 +13,10 @@
   </div>
 </template>
 <script lang="ts" setup>
+import { BrowserWindow } from "vtron";
 import InfoVue from "./Info.vue";
-import { system } from "../../../src/system";
-let win = system.DragWindow({
+
+let win = new BrowserWindow({
         width: 200,
         height: 100,
         content: InfoVue
@@ -24,7 +25,7 @@ let functionArray = [
   {
     name: "弹出提示",
     call: () => {
-      system.Notify.notify('弹出提示', '这是一个提示')
+      // system.Notify.notify('弹出提示', '这是一个提示')
     }
   },
   {

@@ -19,5 +19,4 @@ import winimg from "../../assets/win.png"
     z-index: 99;
     /* background-color: blanchedalmond; */
 }
-
 </style>

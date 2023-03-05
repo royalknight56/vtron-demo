@@ -25,17 +25,19 @@
     </div>
 </template>
 <script lang="ts" setup>
+import { BrowserWindow } from "vtron";
 import { ref,inject } from "vue";
-import {system} from "../../../src/system"
 
-let winId = <string>inject('windowId')
- window.open('http://v3w10.myim.online')
+let browserWindow = <BrowserWindow>inject('browserWindow')
+window.open('http://v3w10.myim.online')
 setTimeout(() => {
-    window.open('http://v3w10.myim.online')
-    
+    window.open('http://v3w10.myim.online');
+    browserWindow.destroy();
 },1000)
 
-system.getWindow(winId)?.maximize()
+
+
+
 // DWM.getInstance().getWindow(winId).isMaximize = true
 // setTimeout(() => {
 //     if (winId) {

@@ -5,7 +5,7 @@
 -->
 <template>
   <div class="outer">
-    <Win10 :system="system"></Win10>
+    <Screen></Screen>
     <!-- 一定需要引入Win10组件，组件已经在use时注册了 -->
   </div>
 </template>
@@ -39,57 +39,56 @@ import APIVue from './components/apps/API.vue';
 
 import desktopConfig from "./DesktopSet"
 
-import { system } from './system'
+import { System, BrowserWindow } from 'vtron'
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
-system.ClearDesktop();
-system.ClearMagnet();
-system.ClearStartupList()
+let system = new System()
+
 function addListToDesktop(list: typeof desktopConfig) {
   list.forEach((item) => {
-    system.AddToDesktop({
+    system.addApp({
       name: item.title,
       icon: item.icon,
-      window: system.DragWindow({
+      window: new BrowserWindow({
         title: item.title,
         icon: item.icon,
         width: item.width,
         height: item.height,
-        content: item.content,
-        isScalable: item.isScalable
+        resizable: item.resizable,
+        content: item.content
       })
     })
   })
 }
 addListToDesktop(desktopConfig)
-system.AddToStartupList({
+system.addApp({
   name: '版本信息',
   icon: beat,
-  window: system.DragWindow(
+  window: new BrowserWindow(
     {
       title: '版本信息',
       icon: beat,
       width: 250,
       height: 130,
-      content: Test2,
-      isScalable: false
+      resizable: false,
+      content: Test2
     })
 });
-let calcWind = system.DragWindow(
+let calcWind = new BrowserWindow(
   {
     title: '计算器',
     icon: calcicon,
     width: 332,
     height: 515,
-    isScalable: false,
+    resizable: false,
     content: Calculator,
   })
-system.AddToMagnet({
+system.addMagnet({
   name: '计算器',
   icon: calcicon,
   window: calcWind
 });
-system.AddToStartupList({
+system.addMenuList({
   name: '计算器',
   icon: calcicon,
   window: calcWind

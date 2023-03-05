@@ -10,15 +10,15 @@
 </template>
 <script lang="ts" setup>
 import { inject } from "vue"
-import {system} from "../../../src/system"
+// import {system} from "../../../src/system"
 let winId = <string>inject('windowId')
 setTimeout(() => {
     window.open('https://github.com/royalknight56/vue-windows10')
-    system.Notify.notify('谢谢',"感谢Star")
+    // system.Notify.notify('谢谢',"感谢Star")
 })
 setTimeout(() => {
     if (winId) {
-        system.getWindow(winId)?.destroy()
+        // system.getWindow(winId)?.destroy()
     }
 },5000)
 
