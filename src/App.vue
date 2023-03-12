@@ -40,13 +40,20 @@ import APIVue from './components/apps/API.vue';
 import desktopConfig from "./DesktopSet"
 
 import { System, BrowserWindow } from 'vtron'
+import { vtronPlus } from "./vtronplus";
+import "./vtronplus/distlib/style.css"
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
-let system = new System()
-
+let system = new System({
+  desktop: [
+    ...addListToDesktop(desktopConfig)
+  ]
+})
+system.use(vtronPlus)
 function addListToDesktop(list: typeof desktopConfig) {
+  let res:any[] = [];
   list.forEach((item) => {
-    system.addApp({
+    res.push({
       name: item.title,
       icon: item.icon,
       window: new BrowserWindow({
@@ -59,40 +66,9 @@ function addListToDesktop(list: typeof desktopConfig) {
       })
     })
   })
+  return res;
 }
-addListToDesktop(desktopConfig)
-system.addApp({
-  name: '版本信息',
-  icon: beat,
-  window: new BrowserWindow(
-    {
-      title: '版本信息',
-      icon: beat,
-      width: 250,
-      height: 130,
-      resizable: false,
-      content: Test2
-    })
-});
-let calcWind = new BrowserWindow(
-  {
-    title: '计算器',
-    icon: calcicon,
-    width: 332,
-    height: 515,
-    resizable: false,
-    content: Calculator,
-  })
-system.addMagnet({
-  name: '计算器',
-  icon: calcicon,
-  window: calcWind
-});
-system.addMenuList({
-  name: '计算器',
-  icon: calcicon,
-  window: calcWind
-})
+
 
 </script>
 

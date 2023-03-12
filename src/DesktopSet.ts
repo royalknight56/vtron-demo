@@ -24,29 +24,12 @@ import Calculator from './components/apps/Calculator.vue';
 import APIVue from './components/apps/API.vue';
 let config = [
     {
-        title: '终端',
-        icon: term,
-        width: 600,
-        height: 370,
-        content: AppConsole,
-        resizable: false
-    },
-    {
         title: 'vscode',
         icon: vscode,
         width: 800,
         height: 700,
         center: true,
         content: 'https://github1s.com/',
-        resizable: true
-    },
-    {
-        title: '功能与API',
-        icon: winicon,
-        width: 300,
-        height: 300,
-        center: true,
-        content: APIVue,
         resizable: true
     },
     {
@@ -91,14 +74,14 @@ let config = [
         content: GotoReadMe,
         resizable: true
     },
-    {
-        title: '浏览器',
-        icon: chromeicon,
-        width: 800,
-        height: 600,
-        center: true,
-        content: Browser,
-        resizable: true
-    }  
+    // {
+    //     title: '浏览器',
+    //     icon: chromeicon,
+    //     width: 800,
+    //     height: 600,
+    //     center: true,
+    //     content: Browser,
+    //     resizable: true
+    // }  
 ]
 export default config
