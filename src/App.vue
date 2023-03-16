@@ -40,8 +40,8 @@ import APIVue from './components/apps/API.vue';
 import desktopConfig from "./DesktopSet"
 
 import { System, BrowserWindow } from 'vtron'
-import { vtronPlus } from "./vtronplus";
-import "./vtronplus/distlib/style.css"
+import { vtronPlus } from "vtron-plus";
+import "vtron-plus/distlib/style.css"
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
 let system = new System({

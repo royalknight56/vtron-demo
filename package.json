@@ -12,7 +12,8 @@
     "@sentry/tracing": "^7.11.1",
     "@sentry/vue": "^7.11.1",
     "element-plus": "^2.2.14",
-    "vtron": "^0.1.9",
+    "vtron": "^0.2.0",
+    "vtron-plus": "^0.0.1",
     "vue": "^3.2.37",
     "vue3-win10": "0.4.0",
     "xterm": "^4.19.0"
