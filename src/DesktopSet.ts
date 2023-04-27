@@ -11,6 +11,11 @@ import mmPlayericon from "./assets/mmPlayer.png";
 import calcicon from "./assets/calcicon.png";
 import todoappicon from "./assets/todoapp.png";
 import moonappicon from './assets/moonappicon.webp'
+import ppticon from './assets/ppt.png'
+import baidumapicon from './assets/baidumap.png'
+import markdownicon from './assets/markdown.png'
+
+
 
 
 
@@ -22,42 +27,65 @@ import GitStars from "./components/apps/GitStars.vue"
 import GotoReadMe from './components/apps/GotoReadMe.vue';
 import Calculator from './components/apps/Calculator.vue';
 import APIVue from './components/apps/API.vue';
+import PPT from './components/apps/PPT.vue';
+import BaiduMap from './components/apps/BaiduMap.vue';
+import MarkDown from './components/apps/MarkDown.vue';
+
+
 let config = [
+    // {
+    //     title: 'vscode',
+    //     icon: vscode,
+    //     width: 800,
+    //     height: 700,
+    //     center: true,
+    //     content: 'https://github1s.com/',
+    //     resizable: true
+    // },
+    // {
+    //     title: '咕噜Todo',
+    //     icon: todoappicon,
+    //     width: 800,
+    //     height: 600,
+    //     center: true,
+    //     content: "https://groupgroupgroup.group",
+    //     resizable: true
+    // },
+    // {
+    //     title: '看月亮',
+    //     icon: moonappicon,
+    //     width: 800,
+    //     height: 600,
+    //     center: true,
+    //     content: "http://static.myim.online/moon/",
+    //     resizable: true
+    // },
     {
-        title: 'vscode',
-        icon: vscode,
-        width: 800,
-        height: 700,
-        center: true,
-        content: 'https://github1s.com/',
-        resizable: true
-    },
-    {
-        title: 'mmPlayer',
-        icon: mmPlayericon,
-        width: 850,
-        height: 500,
-        center: true,
-        content: "https://netease-music.fe-mm.com/",
-        resizable: true
-    },
-    {
-        title: '咕噜Todo',
-        icon: todoappicon,
+        title: 'MarkDown',
+        icon: markdownicon,
         width: 800,
         height: 600,
         center: true,
-        content: "https://groupgroupgroup.group",
+        content: MarkDown,
         resizable: true
     },
     {
-        title: '看月亮',
-        icon: moonappicon,
+        title: '百度地图',
+        icon: baidumapicon,
         width: 800,
         height: 600,
         center: true,
-        content: "http://static.myim.online/moon/",
+        content: BaiduMap,
         resizable: true
+    },
+    {
+        title: 'PPT',
+        icon: ppticon,
+        width: 770,
+        height: 600,
+        center: true,
+        resizable: true,
+        content: PPT
     },
     {
         title: '点个star',
@@ -74,14 +102,14 @@ let config = [
         content: GotoReadMe,
         resizable: true
     },
-    // {
-    //     title: '浏览器',
-    //     icon: chromeicon,
-    //     width: 800,
-    //     height: 600,
-    //     center: true,
-    //     content: Browser,
-    //     resizable: true
-    // }  
+    {
+        title: '浏览器',
+        icon: chromeicon,
+        width: 800,
+        height: 600,
+        center: true,
+        content: Browser,
+        resizable: true
+    }  
 ]
 export default config

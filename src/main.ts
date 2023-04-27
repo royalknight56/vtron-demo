@@ -14,9 +14,12 @@ import backimg from "./assets/back.jpg"
 import * as Sentry from "@sentry/vue";
 import { BrowserTracing } from "@sentry/tracing";
 
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+
 // use引入的插件，第二个选项是配置项
 const app = createApp(App);
-app.use(vtron).mount('#app')
+app.use(vtron).use(mavonEditor).mount('#app')
 
 Sentry.init({
     app,
