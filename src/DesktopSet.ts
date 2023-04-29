@@ -33,33 +33,33 @@ import MarkDown from './components/apps/MarkDown.vue';
 
 
 let config = [
-    // {
-    //     title: 'vscode',
-    //     icon: vscode,
-    //     width: 800,
-    //     height: 700,
-    //     center: true,
-    //     content: 'https://github1s.com/',
-    //     resizable: true
-    // },
-    // {
-    //     title: '咕噜Todo',
-    //     icon: todoappicon,
-    //     width: 800,
-    //     height: 600,
-    //     center: true,
-    //     content: "https://groupgroupgroup.group",
-    //     resizable: true
-    // },
-    // {
-    //     title: '看月亮',
-    //     icon: moonappicon,
-    //     width: 800,
-    //     height: 600,
-    //     center: true,
-    //     content: "http://static.myim.online/moon/",
-    //     resizable: true
-    // },
+    {
+        title: 'github1s',
+        icon: vscode,
+        width: 800,
+        height: 700,
+        center: true,
+        content: 'https://github1s.com/',
+        resizable: true
+    },
+    {
+        title: '咕噜Todo',
+        icon: todoappicon,
+        width: 800,
+        height: 600,
+        center: true,
+        content: "https://groupgroupgroup.group",
+        resizable: true
+    },
+    {
+        title: '看月亮',
+        icon: moonappicon,
+        width: 800,
+        height: 600,
+        center: true,
+        content: "http://static.myim.online/moon/",
+        resizable: true
+    },
     {
         title: 'MarkDown',
         icon: markdownicon,

@@ -27,16 +27,15 @@ let system = new System({
   desktop: [
     ...addListToDesktop(desktopConfig)
   ],
-  rootStyle:{
-  },
   background: backimg,
 })
-system.use(vtronPlus);
+
 system.whenReady().then((readySystem)=>{
+  system.use(vtronPlus);
   readySystem.fs.writeFile('/C/Users/Desktop/使用教程',{
     content:`# hello, 欢迎使用Vtron WebOS!
 
-这可能时目前最具扩展性的webos
+这可能是目前最具扩展性的webos
 
 ## 他可以记录你的文档
 
@@ -66,7 +65,6 @@ system.whenReady().then((readySystem)=>{
 
 [https://github.com/royalknight56/vtron](https://github.com/royalknight56/vtron)`,
     type:"markdown",
-    name: "使用教程",
     icon: "file"
   });
   setTimeout(()=>{
@@ -102,6 +100,7 @@ function addListToDesktop(list: typeof desktopConfig) {
         width: item.width,
         height: item.height,
         resizable: item.resizable,
+        center: item.center,
         content: item.content
       }
     })
