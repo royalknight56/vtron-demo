@@ -32,18 +32,7 @@ let browserWindow = <BrowserWindow>inject('browserWindow')
 window.open('http://v3w10.myim.online')
 setTimeout(() => {
     window.open('http://v3w10.myim.online');
-    browserWindow.destroy();
-},1000)
-
-
-
-
-// DWM.getInstance().getWindow(winId).isMaximize = true
-// setTimeout(() => {
-//     if (winId) {
-//         DWM.getInstance().destoryWindow(winId)
-//     }
-// },1000)
+})
 
 let urlinput = ref('http://v3w10.myim.online')
 let urlsrc = ref('http://v3w10.myim.online')
@@ -58,7 +47,6 @@ function changeUrl() {
     }else{
         urlsrc.value='https://'+urlinput.value
     }
-    // urlsrc.value=urlinput.value
 }
 window.open=<any>function(e:any) { 
 }

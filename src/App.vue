@@ -20,18 +20,33 @@ import { vtronPlus } from "vtron-plus";
 import MarkDown from "./components/apps/MarkDown.vue";
 import "vtron-plus/distlib/style.css"
 import backimg from "./assets/back.jpg"
-
+import CommentVue from "./components/apps/Comment.vue";
+import beaticon from "./assets/beat.ico"
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
 let system = new System({
   desktop: [
     ...addListToDesktop(desktopConfig)
   ],
+  magnet:[
+    {
+        name: '意见反馈',
+        icon: beaticon,
+        window:{
+          title: '意见反馈',
+          width: 400,
+          height: 300,
+          center: true,
+          content: CommentVue,
+          resizable: false
+        }
+    },
+  ],
   background: backimg,
 })
 
 system.whenReady().then((readySystem)=>{
-  system.use(vtronPlus);
+  readySystem.use(vtronPlus);
   readySystem.fs.writeFile('/C/Users/Desktop/使用教程',{
     content:`# hello, 欢迎使用Vtron WebOS!
 

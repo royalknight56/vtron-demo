@@ -27,7 +27,6 @@ function save(markdown: string, html: string) {
         content: markdown,
         type: "markdown",
         icon: "file",
-        name: basename(path)
     }).then((res) => {
         new Notify({
             title: '保存成功',

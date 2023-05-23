@@ -4,8 +4,6 @@
   height:{{win.windowInfo.height}}
   x:{{win.windowInfo.x}}
   y:{{win.windowInfo.y}}
-  <!-- {{win.windowInfo}} -->
-
 
 </div>
   <div v-for="item in functionArray">
