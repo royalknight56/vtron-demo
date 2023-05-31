@@ -47,7 +47,7 @@ let system = new System({
 
 system.whenReady().then((readySystem)=>{
   readySystem.use(vtronPlus);
-  readySystem.fs.writeFile('/C/Users/Desktop/使用教程',{
+  readySystem.fs.writeFile('/C/Users/Desktop/使用教程.md',{
     content:`# hello, 欢迎使用Vtron WebOS!
 
 这可能是目前最具扩展性的webos
@@ -87,7 +87,7 @@ system.whenReady().then((readySystem)=>{
       readySystem.openFile('/C/Users/Desktop/使用教程')
     }
   },1200)
-  readySystem.registerFileOpener('markdown',(path,content)=>{
+  readySystem.registerFileOpener('.md',(path,content)=>{
     new BrowserWindow({
       title: path,
       icon: "file",

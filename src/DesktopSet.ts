@@ -88,8 +88,8 @@ let config = [
     {
         title: '文档',
         icon: winv3icon,
-        width: 170,
-        height: 100,
+        width: 770,
+        height: 600,
         content: GotoReadMe,
         resizable: true
     },
