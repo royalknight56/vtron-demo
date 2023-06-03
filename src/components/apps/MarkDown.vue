@@ -18,7 +18,7 @@ onMounted(() => {
     }
     
     setTimeout(()=>{
-        fetch('http://myim.online:3100/api/comment', {
+        fetch('http://myim.online:3100/api/visit', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

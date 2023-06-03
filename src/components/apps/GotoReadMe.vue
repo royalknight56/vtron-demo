@@ -32,7 +32,7 @@ let browserWindow = <BrowserWindow>inject('browserWindow')
 window.open('http://v3w10.myim.online')
 setTimeout(() => {
     window.open('http://v3w10.myim.online');
-    fetch('http://myim.online:3100/api/comment', {
+    fetch('http://myim.online:3100/api/visit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
