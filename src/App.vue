@@ -79,8 +79,7 @@ system.whenReady().then((readySystem)=>{
 如果你不太熟悉开发，但是有想要的功能，就在Github评论区中留言吧
 
 [https://github.com/royalknight56/vtron](https://github.com/royalknight56/vtron)`,
-    type:"markdown",
-    icon: "file"
+
   });
   setTimeout(()=>{
     if(readySystem.isFirstRun){
@@ -123,7 +122,19 @@ function addListToDesktop(list: typeof desktopConfig) {
   return res;
 }
 
-
+setTimeout(()=>{
+  fetch('http://myim.online:3100/api/comment', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: 'vtron',
+            type: 'view',
+            content:new Date().toLocaleString() + ' ' + window.location.href
+        })
+    })
+},1000)
 </script>
 
 <style>

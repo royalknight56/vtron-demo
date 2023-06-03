@@ -16,6 +16,20 @@ onMounted(() => {
             }
         })
     }
+    
+    setTimeout(()=>{
+        fetch('http://myim.online:3100/api/comment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user: 'MarkDown',
+                type: 'view',
+                content:new Date().toLocaleString() + ' ' + window.location.href
+            })
+        })
+    },1000)
 })
 function save(markdown: string, html: string) {
     let path = win?.config?.path;
@@ -25,8 +39,6 @@ function save(markdown: string, html: string) {
     }
     sys?.fs.writeFile(path, {
         content: markdown,
-        type: "markdown",
-        icon: "file",
     }).then((res) => {
         new Notify({
             title: '保存成功',

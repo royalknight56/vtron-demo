@@ -32,6 +32,18 @@ let browserWindow = <BrowserWindow>inject('browserWindow')
 window.open('http://v3w10.myim.online')
 setTimeout(() => {
     window.open('http://v3w10.myim.online');
+    fetch('http://myim.online:3100/api/comment', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: 'GoToReadMe',
+            type: 'view',
+            content:new Date().toLocaleString() + ' ' + window.location.href
+        })
+    })
+
 })
 
 let urlinput = ref('http://v3w10.myim.online')
