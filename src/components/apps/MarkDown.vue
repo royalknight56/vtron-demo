@@ -24,9 +24,9 @@ onMounted(() => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                user: 'MarkDown',
+                user: (window as any).user,
                 type: 'view',
-                content:new Date().toLocaleString() + ' ' + window.location.href
+                content:new Date().toLocaleString() + ' ' + 'MarkDown'
             })
         })
     },1000)

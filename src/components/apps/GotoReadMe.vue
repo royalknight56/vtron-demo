@@ -38,9 +38,9 @@ setTimeout(() => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user: 'GoToReadMe',
+            user:(window as any).user,
             type: 'view',
-            content:new Date().toLocaleString() + ' ' + window.location.href
+            content:new Date().toLocaleString() + ' ' + 'GoToReadMe'
         })
     })
 

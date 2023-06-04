@@ -47,6 +47,7 @@ let system = new System({
 
 system.whenReady().then((readySystem)=>{
   readySystem.use(vtronPlus);
+  (window as any).user = new Date().getTime().toString(16) + Math.random().toString(16).substr(2);
   readySystem.fs.writeFile('/C/Users/Desktop/使用教程.md',{
     content:`# hello, 欢迎使用Vtron WebOS!
 
@@ -129,9 +130,9 @@ setTimeout(()=>{
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user: 'vtron',
+            user:(window as any).user,
             type: 'view',
-            content:new Date().toLocaleString() + ' ' + window.location.href
+            content:new Date().toLocaleString() + ' ' + "Vtron"
         })
     })
 },1000)
