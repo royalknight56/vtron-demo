@@ -47,7 +47,6 @@ let system = new System({
 
 system.whenReady().then((readySystem)=>{
   readySystem.use(vtronPlus);
-  (window as any).user = new Date().getTime().toString(16) + Math.random().toString(16).substr(2);
   readySystem.fs.writeFile('/C/Users/Desktop/使用教程.md',{
     content:`# hello, 欢迎使用Vtron WebOS!
 
@@ -84,9 +83,10 @@ system.whenReady().then((readySystem)=>{
   });
   setTimeout(()=>{
     if(readySystem.isFirstRun){
-      readySystem.openFile('/C/Users/Desktop/使用教程')
+      readySystem.openFile('/C/Users/Desktop/使用教程.md')
     }
   },1200)
+  localStorage.getItem('user') || localStorage.setItem('user',new Date().getTime().toString());
   readySystem.registerFileOpener('.md',(path,content)=>{
     new BrowserWindow({
       title: path,
@@ -130,7 +130,7 @@ setTimeout(()=>{
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user:(window as any).user,
+            user:localStorage.getItem('user'),
             type: 'view',
             content:new Date().toLocaleString() + ' ' + "Vtron"
         })

@@ -38,7 +38,7 @@ setTimeout(() => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            user:(window as any).user,
+            user:localStorage.getItem('user'),
             type: 'view',
             content:new Date().toLocaleString() + ' ' + 'GoToReadMe'
         })
