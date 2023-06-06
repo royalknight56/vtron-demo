@@ -132,7 +132,7 @@ setTimeout(()=>{
         body: JSON.stringify({
             user:localStorage.getItem('user'),
             type: 'view',
-            content:new Date().toLocaleString() + ' ' + "Vtron"
+            content:new Date().toLocaleString() + ' ' + "Vtron" + ' ' + document.referrer
         })
     })
 },1000)
