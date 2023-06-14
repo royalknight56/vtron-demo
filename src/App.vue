@@ -35,7 +35,7 @@ let system = new System({
         window:{
           title: '意见反馈',
           width: 400,
-          height: 300,
+          height: 400,
           center: true,
           content: CommentVue,
           resizable: false

@@ -3,6 +3,12 @@
         <div class="tip">
             请输入您的意见
         </div>
+        <div class="alr">
+            在这里提意见之前，建议首先转到github提供issue，可以得到及时的跟踪反馈
+            <a target="_blank" href="https://github.com/royalknight56/vtron/issues/new">
+                https://github.com/royalknight56/vtron/issues/new
+            </a>
+        </div>
         <div class="user">
             <span class="user-label">您的昵称或联系方式：</span>
             <input type="text" v-model="user">
@@ -84,6 +90,13 @@ function submit() {
     border-width: 2px;
     border-color: #0078D7;
     background-color: #E5F1FB;
+}
+.alr{
+    font-size: 12px;
+    color: #0000008a;
+    text-align: center;
+    width: 300px;
+    line-height: 20px;
 }
 
 .user {}
