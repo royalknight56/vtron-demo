@@ -16,20 +16,6 @@ onMounted(() => {
             }
         })
     }
-    
-    setTimeout(()=>{
-        fetch('http://myim.online:3100/api/visit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                user: localStorage.getItem('user'),
-                type: 'view',
-                content:new Date().toLocaleString() + ' ' + 'MarkDown'
-            })
-        })
-    },1000)
 })
 function save(markdown: string, html: string) {
     let path = win?.config?.path;
