@@ -34,15 +34,6 @@ let config = [
         resizable: true
     },
     {
-        title: '看月亮',
-        icon: moonappicon,
-        width: 800,
-        height: 600,
-        center: true,
-        content: "http://static.myim.online/moon/",
-        resizable: true
-    },
-    {
         title: 'MarkDown',
         icon: markdownicon,
         width: 800,
