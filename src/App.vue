@@ -8,6 +8,7 @@
     <Screen></Screen>
     <!-- 一定需要引入Win10组件，组件已经在use时注册了 -->
   </div>
+  <a href="https://beian.miit.gov.cn/">豫ICP备19041315号</a>
 </template>
 
 <script lang="ts" setup>
