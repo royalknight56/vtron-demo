@@ -29,13 +29,13 @@ import { BrowserWindow } from "vtron";
 import { ref,inject } from "vue";
 
 let browserWindow = <BrowserWindow>inject('browserWindow')
-window.open('http://v3w10.myim.online')
+window.open('https://v3w10.myim.online')
 setTimeout(() => {
-    window.open('http://v3w10.myim.online');
+    window.open('https://v3w10.myim.online');
 })
 
-let urlinput = ref('http://v3w10.myim.online')
-let urlsrc = ref('http://v3w10.myim.online')
+let urlinput = ref('https://v3w10.myim.online')
+let urlsrc = ref('https://v3w10.myim.online')
 function urlkey(e:KeyboardEvent) {
     if (e.code == 'Enter') {
         changeUrl()
