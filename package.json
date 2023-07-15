@@ -13,7 +13,7 @@
     "@sentry/vue": "^7.11.1",
     "element-plus": "^2.2.14",
     "mavon-editor": "^3.0.1",
-    "vtron": "^0.3.2",
+    "vtron": "^0.3.3",
     "vtron-plus": "^0.3.0",
     "vue": "^3.2.37",
     "xterm": "^4.19.0"

@@ -44,6 +44,7 @@ let system = new System({
     },
   ],
   background: backimg,
+  lang: 'zh-CN',
 })
 
 system.whenReady().then((readySystem)=>{
