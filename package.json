@@ -1,6 +1,6 @@
 {
   "name": "pkg",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "vite --force",
     "build": "vite build",
@@ -9,11 +9,11 @@
     "install-npm": "npm install --registry https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@sentry/tracing": "^7.11.1",
-    "@sentry/vue": "^7.11.1",
+    "@sentry/tracing": "^7.60.0",
+    "@sentry/vue": "^7.60.0",
     "element-plus": "^2.2.14",
     "mavon-editor": "^3.0.1",
-    "vtron": "^0.3.3",
+    "vtron": "^0.3.4",
     "vtron-plus": "^0.3.2",
     "vue": "^3.2.37",
     "xterm": "^4.19.0"
