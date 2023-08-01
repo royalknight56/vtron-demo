@@ -1,5 +1,5 @@
 <template>
-    <iframe allow="fullscreen" ref="storeRef" src="https://myim.online/ppt"></iframe>
+    <iframe allow="fullscreen" ref="storeRef" src="http://localhost:8080/"></iframe>
 </template>
 <script lang="ts" setup>
 import { BrowserWindow, Notify, useSystem } from 'vtron';
@@ -7,6 +7,7 @@ import { ref, onMounted,inject } from 'vue';
 let sys = useSystem();
 let win = inject<BrowserWindow>('browserWindow');
 const storeRef = ref<HTMLIFrameElement | null>(null);
+let hasInit = false;
 window.addEventListener('message', async (e) => {
     const eventData = e.data
     if (eventData.type == "exportSpecificFile") {
@@ -19,6 +20,10 @@ window.addEventListener('message', async (e) => {
             content: '文件已保存到桌面',
         })
     } else if(eventData.type == "initSuccess") {
+        if(hasInit){
+            return;
+        }
+        hasInit = true;
         storeRef.value?.contentWindow?.postMessage(
             {
                 type: 'init',
