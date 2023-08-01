@@ -23,6 +23,8 @@ import "vtron-plus/distlib/style.css"
 import backimg from "./assets/back.jpg"
 import CommentVue from "./components/apps/Comment.vue";
 import beaticon from "./assets/beat.ico"
+import PPT from './components/apps/PPT.vue';
+
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
 let system = new System({
@@ -98,6 +100,21 @@ system.whenReady().then((readySystem)=>{
       resizable: true,
       center: true,
       content: MarkDown,
+      config:{
+        path: path,
+        content: content
+      }
+    }).show()
+  });
+  readySystem.registerFileOpener('.ppt',(path,content)=>{
+    new BrowserWindow({
+      title: path,
+      icon: "file",
+      width: 800,
+      height: 600,
+      resizable: true,
+      center: true,
+      content: PPT,
       config:{
         path: path,
         content: content

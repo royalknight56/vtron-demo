@@ -14,6 +14,8 @@ import GitStars from "./components/apps/GitStars.vue"
 import GotoReadMe from './components/apps/GotoReadMe.vue';
 import MarkDown from './components/apps/MarkDown.vue';
 import FriendLink from './components/apps/FriendLink.vue';
+import PPT from './components/apps/PPT.vue';
+
 import MusicVue from "./components/apps/Music.vue";
 
 
@@ -79,7 +81,7 @@ let config = [
         height: 600,
         center: true,
         resizable: true,
-        content: "https://pipipi-pikachu.github.io/PPTist/"
+        content: PPT
     },
     {
         title: '点个star',
