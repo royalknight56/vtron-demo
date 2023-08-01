@@ -7,10 +7,13 @@ import moonappicon from './assets/moonappicon.webp'
 import ppticon from './assets/ppt.png'
 import baidumapicon from './assets/baidumap.png'
 import markdownicon from './assets/markdown.png'
+import friendLinkicon from './assets/friendLink.png'
+
 
 import GitStars from "./components/apps/GitStars.vue"
 import GotoReadMe from './components/apps/GotoReadMe.vue';
 import MarkDown from './components/apps/MarkDown.vue';
+import FriendLink from './components/apps/FriendLink.vue';
 import MusicVue from "./components/apps/Music.vue";
 
 
@@ -58,6 +61,15 @@ let config = [
         height: 600,
         center: true,
         content: "https://map.baidu.com/",
+        resizable: true
+    },
+    {
+        title: '友链',
+        icon: friendLinkicon,
+        width: 800,
+        height: 600,
+        center: true,
+        content: FriendLink,    
         resizable: true
     },
     {
