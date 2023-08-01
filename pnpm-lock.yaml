@@ -1,26 +1,26 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@sentry/tracing': ^7.11.1
-  '@sentry/vue': ^7.11.1
+  '@sentry/tracing': ^7.60.0
+  '@sentry/vue': ^7.60.0
   '@vitejs/plugin-vue': ^4.1.0
   '@vue/compiler-sfc': ^3.2.37
   element-plus: ^2.2.14
   mavon-editor: ^3.0.1
   typescript: ^5.0.2
   vite: ^4.3.9
-  vtron: ^0.3.4
+  vtron: ^0.3.7
   vtron-plus: ^0.3.2
   vue: ^3.2.37
   vue-tsc: ^1.4.2
   xterm: ^4.19.0
 
 dependencies:
-  '@sentry/tracing': 7.40.0
-  '@sentry/vue': 7.40.0_vue@3.2.47
+  '@sentry/tracing': 7.61.0
+  '@sentry/vue': 7.61.0_vue@3.2.47
   element-plus: 2.2.33_vue@3.2.47
   mavon-editor: 3.0.1
-  vtron: 0.3.4
+  vtron: 0.3.7
   vtron-plus: 0.3.2_vite@4.4.4
   vue: 3.2.47
   xterm: 4.19.0
@@ -379,68 +379,76 @@ packages:
       string-argv: 0.3.2
     dev: false
 
-  /@sentry/browser/7.40.0:
-    resolution: {integrity: sha512-07rZ+cTcpmYB1r84/oZtmSPJJvLCxW8yIh/5s4MdKRyZpqIDKhOz6cCS/4j+l1V+MeLcNLZBjFtNdKA2eocTpg==}
+  /@sentry-internal/tracing/7.61.0:
+    resolution: {integrity: sha512-zTr+MXEG4SxNxif42LIgm2RQn+JRXL2NuGhRaKSD2i4lXKFqHVGlVdoWqY5UfqnnJPokiTWIj9ejR8I5HV8Ogw==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/core': 7.40.0
-      '@sentry/replay': 7.40.0
-      '@sentry/types': 7.40.0
-      '@sentry/utils': 7.40.0
+      '@sentry/core': 7.61.0
+      '@sentry/types': 7.61.0
+      '@sentry/utils': 7.61.0
       tslib: 1.14.1
     dev: false
 
-  /@sentry/core/7.40.0:
-    resolution: {integrity: sha512-OPAobQG0GTY++r5LWUcOA1lS+2TY2Lmw/i5s4kL9WbY+f08dbLNEGNBObY7/V98OL4f7OG+nWaPFybgM7kqUTQ==}
+  /@sentry/browser/7.61.0:
+    resolution: {integrity: sha512-IGEkJZRP16Oe5CkXkmhU3QdV5RugW6Vds16yJFFYsgp87NprWtRZgqzldFDYkINStfBHVdctj/Rh/ZrLf8QlkQ==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/types': 7.40.0
-      '@sentry/utils': 7.40.0
+      '@sentry-internal/tracing': 7.61.0
+      '@sentry/core': 7.61.0
+      '@sentry/replay': 7.61.0
+      '@sentry/types': 7.61.0
+      '@sentry/utils': 7.61.0
       tslib: 1.14.1
     dev: false
 
-  /@sentry/replay/7.40.0:
-    resolution: {integrity: sha512-Y9Kvo9jKouUdrHQhHVv5SmWZClF5o7BFI6oVpLlv4zXORPQlyoZONM/9sxiMvvH73alDSpxzCoxyhlypAOH4ww==}
+  /@sentry/core/7.61.0:
+    resolution: {integrity: sha512-zl0ZKRjIoYJQWYTd3K/U6zZfS4GDY9yGd2EH4vuYO4kfYtEp/nJ8A+tfAeDo0c9FGxZ0Q+5t5F4/SfwbgyyQzg==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@sentry/types': 7.61.0
+      '@sentry/utils': 7.61.0
+      tslib: 1.14.1
+    dev: false
+
+  /@sentry/replay/7.61.0:
+    resolution: {integrity: sha512-1ugk0yZssOPkSg6uTVcysjxlBydycXiOgV0PCU7DsXCFOV1ua5YpyPZFReTz9iFTtwD0LwGFM1LW9wJeQ67Fzg==}
     engines: {node: '>=12'}
     dependencies:
-      '@sentry/core': 7.40.0
-      '@sentry/types': 7.40.0
-      '@sentry/utils': 7.40.0
+      '@sentry/core': 7.61.0
+      '@sentry/types': 7.61.0
+      '@sentry/utils': 7.61.0
     dev: false
 
-  /@sentry/tracing/7.40.0:
-    resolution: {integrity: sha512-y1SNwlFEC7a2ThtWbT/KbnAVecAWyIeKiO/IRgyZSdcj1z4CliADKNQmkUhnDlLy8jV1ARGuZ1DvsuPNlWyDfw==}
+  /@sentry/tracing/7.61.0:
+    resolution: {integrity: sha512-asGbw3n04qkM5zUCPlGg9i52GEHq9Nmore38SJFN0L4N/YH6EPJLEUfNm2jFvXWCo96kq/dPKnyjOEuPccwhIA==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry/core': 7.40.0
-      '@sentry/types': 7.40.0
-      '@sentry/utils': 7.40.0
+      '@sentry-internal/tracing': 7.61.0
+    dev: false
+
+  /@sentry/types/7.61.0:
+    resolution: {integrity: sha512-/GLlIBNR35NKPE/SfWi9W10dK9hE8qTShzsuPVn5wAJxpT3Lb4+dkwmKCTLUYxdkmvRDEudkfOxgalsfQGTAWA==}
+    engines: {node: '>=8'}
+    dev: false
+
+  /@sentry/utils/7.61.0:
+    resolution: {integrity: sha512-jfj14d0XBFiCU0G6dZZ12SizATiF5Mt4stBGzkM5iS9nXFj8rh1oTT7/p+aZoYzP2JTF+sDzkNjWxyKZkcTo0Q==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@sentry/types': 7.61.0
       tslib: 1.14.1
     dev: false
 
-  /@sentry/types/7.40.0:
-    resolution: {integrity: sha512-dIbqBenbmDx1F8pvfC11C88J83ecwumUhV+YOIxcmVd1fmlPF2hXWZ01+NTkTDkCu341sJx4wPQogByFy8FwGA==}
-    engines: {node: '>=8'}
-    dev: false
-
-  /@sentry/utils/7.40.0:
-    resolution: {integrity: sha512-ZdCbTpAXPiVVfvNJVftnDhsctOui71MDUhVIdLkgg4Cuic+WHGPRmmZ+H6uZdp7vRaeB+Uvnn5+t2iSAVo/mAA==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@sentry/types': 7.40.0
-      tslib: 1.14.1
-    dev: false
-
-  /@sentry/vue/7.40.0_vue@3.2.47:
-    resolution: {integrity: sha512-aMOFe3xPIi4VLcf35Qpb087sDi9ESRZytBX2HYQUVaYjZ2hZxoOaYESiw699jlHmGkypfTfLHxiYCHMN8ZC9Kg==}
+  /@sentry/vue/7.61.0_vue@3.2.47:
+    resolution: {integrity: sha512-nFxp8mvz6hWrWBhOgC70NIRv3KhHrMtUHWRUZBW3lHU4rnu/b20x3tt7DrNzmhnMYDZ2tWLRYPn2WQKXx1Votw==}
     engines: {node: '>=8'}
     peerDependencies:
       vue: 2.x || 3.x
     dependencies:
-      '@sentry/browser': 7.40.0
-      '@sentry/core': 7.40.0
-      '@sentry/types': 7.40.0
-      '@sentry/utils': 7.40.0
+      '@sentry/browser': 7.61.0
+      '@sentry/core': 7.61.0
+      '@sentry/types': 7.61.0
+      '@sentry/utils': 7.61.0
       tslib: 1.14.1
       vue: 3.2.47
     dev: false
@@ -1279,7 +1287,7 @@ packages:
     dependencies:
       '@types/node': 18.16.19
       vite-plugin-dts: 2.3.0_kbqbiudsdkcylbzduvzwony76i
-      vtron: 0.3.4
+      vtron: 0.3.7
       vue: 3.2.47
       xterm: 5.2.1
       xterm-addon-fit: 0.7.0_xterm@5.2.1
@@ -1289,8 +1297,8 @@ packages:
       - vite
     dev: false
 
-  /vtron/0.3.4:
-    resolution: {integrity: sha512-a9LvDdE9QLFAYHLsP5TBUqm9R5AT7KajFucNZ3CrbiC15dfRa6OfGaZpkAYd5eutd5ZSHN/xBmMRRcY1b8r3BA==}
+  /vtron/0.3.7:
+    resolution: {integrity: sha512-r7nL4Nnw7vfdjYIvRCXNgP4aqc/LcTVBB7wivDfTmzyrnhEUbloMT/X38caP5uANgJQUIzg1cIyPs4lk0EQokg==}
     dependencies:
       vue: 3.2.47
       vue3-sfc-loader: 0.8.4
