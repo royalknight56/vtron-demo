@@ -128,6 +128,19 @@ system.whenReady().then((readySystem) => {
       },
     }).show();
   });
+  setTimeout(() => {
+    fetch("https://myim.online:3100/api/visit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: localStorage.getItem("user"),
+        type: "view",
+        content: `${document.referrer}(${system.version})`,
+      }),
+    });
+  }, 100);
 });
 function addListToDesktop(list: typeof desktopConfig) {
   let res: any[] = [];
@@ -148,20 +161,6 @@ function addListToDesktop(list: typeof desktopConfig) {
   });
   return res;
 }
-
-setTimeout(() => {
-  fetch("https://myim.online:3100/api/visit", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      user: localStorage.getItem("user"),
-      type: "view",
-      content: document.referrer,
-    }),
-  });
-}, 1000);
 </script>
 
 <style>
