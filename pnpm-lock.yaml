@@ -9,7 +9,7 @@ specifiers:
   mavon-editor: ^3.0.1
   typescript: ^5.0.2
   vite: ^4.3.9
-  vtron: ^0.3.7
+  vtron: ^0.3.8
   vtron-plus: ^0.3.2
   vue: ^3.2.37
   vue-tsc: ^1.4.2
@@ -20,7 +20,7 @@ dependencies:
   '@sentry/vue': 7.61.0_vue@3.2.47
   element-plus: 2.2.33_vue@3.2.47
   mavon-editor: 3.0.1
-  vtron: 0.3.7
+  vtron: 0.3.8
   vtron-plus: 0.3.2_vite@4.4.4
   vue: 3.2.47
   xterm: 4.19.0
@@ -1287,7 +1287,7 @@ packages:
     dependencies:
       '@types/node': 18.16.19
       vite-plugin-dts: 2.3.0_kbqbiudsdkcylbzduvzwony76i
-      vtron: 0.3.7
+      vtron: 0.3.8
       vue: 3.2.47
       xterm: 5.2.1
       xterm-addon-fit: 0.7.0_xterm@5.2.1
@@ -1297,8 +1297,8 @@ packages:
       - vite
     dev: false
 
-  /vtron/0.3.7:
-    resolution: {integrity: sha512-r7nL4Nnw7vfdjYIvRCXNgP4aqc/LcTVBB7wivDfTmzyrnhEUbloMT/X38caP5uANgJQUIzg1cIyPs4lk0EQokg==}
+  /vtron/0.3.8:
+    resolution: {integrity: sha512-MNs97+0jArQfyMJBVCKbrqRz0uHwFuSYuoJkNRqb89z1F2B0Ldw9kt2yMElNagX7S0UW2NUxJ/JmvVi1nCA4UA==}
     dependencies:
       vue: 3.2.47
       vue3-sfc-loader: 0.8.4

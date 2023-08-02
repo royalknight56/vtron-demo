@@ -65,8 +65,8 @@ let config = [
   {
     title: "友链",
     icon: friendLinkicon,
-    width: 800,
-    height: 600,
+    width: 600,
+    height: 400,
     center: true,
     content: FriendLink,
     resizable: true,

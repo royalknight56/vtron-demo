@@ -8,57 +8,62 @@
     <Screen></Screen>
     <!-- 一定需要引入Win10组件，组件已经在use时注册了 -->
   </div>
-  <a style="display: none;" href="https://beian.miit.gov.cn/">豫ICP备19041315号</a>
+  <a style="display: none" href="https://beian.miit.gov.cn/"
+    >豫ICP备19041315号</a
+  >
 </template>
 
 <script lang="ts" setup>
+import desktopConfig from "./DesktopSet";
 
-
-import desktopConfig from "./DesktopSet"
-
-import { System, BrowserWindow } from 'vtron'
+import { System, BrowserWindow } from "vtron";
 import { vtronPlus } from "vtron-plus";
 import MarkDown from "./components/apps/MarkDown.vue";
-import "vtron-plus/distlib/style.css"
-import backimg from "./assets/back.jpg"
+import "vtron-plus/distlib/style.css";
+import backimg from "./assets/back.jpg";
 import CommentVue from "./components/apps/Comment.vue";
-import beaticon from "./assets/beat.ico"
-import PPT from './components/apps/PPT.vue';
-
+import beaticon from "./assets/beat.ico";
+import PPT from "./components/apps/PPT.vue";
+import markdownicon from "./assets/markdown.png";
+import ppticon from "./assets/ppt.png";
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
 let system = new System({
-  desktop: [
-    ...addListToDesktop(desktopConfig)
-  ],
-  magnet:[
+  desktop: [...addListToDesktop(desktopConfig)],
+  magnet: [
     {
-        name: '意见反馈',
-        icon: beaticon,
-        window:{
-          title: '意见反馈',
-          width: 400,
-          height: 400,
-          center: true,
-          content: CommentVue,
-          resizable: false
-        }
+      name: "意见反馈",
+      icon: beaticon,
+      window: {
+        title: "意见反馈",
+        width: 400,
+        height: 400,
+        center: true,
+        content: CommentVue,
+        resizable: false,
+      },
     },
   ],
   background: backimg,
-  lang: 'zh-CN',
-})
+  lang: "zh-CN",
+});
 
-system.whenReady().then((readySystem)=>{
+system.whenReady().then((readySystem) => {
+  if (readySystem.version !== "0.3.8") {
+    system.recover();
+  }
   readySystem.use(vtronPlus);
-  readySystem.fs.writeFile('/C/Users/Desktop/使用教程.md',{
-    content:`# hello, 欢迎使用Vtron WebOS!
+  readySystem.fs.writeFile("/C/Users/Desktop/使用教程.md", {
+    content: `# hello, 欢迎使用Vtron WebOS!
 
 这可能是目前最具扩展性的webos
-
+## 已经更新至 0.3
+#### 修复了文件拖动的问题
 ## 他可以记录你的文档
 
 自带文件系统，只要你的电脑还在，这份文件就保存着
+
+（不包括一些破坏性的操作）
 
 ## 试试精彩的终端
 
@@ -72,9 +77,11 @@ system.whenReady().then((readySystem)=>{
 
 ## 万能的文件类型
 
-右键打开文件的属性，就能修改文件的类型
+右键打开文件的属性，就能修改文件的名称
 
-把文件类型改成 markdown 之后，再打开试试！
+把文件后缀改成 .md 之后，再打开试试！
+
+也可以使用ppt，markdown 应用创建新的文件
 
 ## 想要更多的功能？
 
@@ -83,47 +90,47 @@ system.whenReady().then((readySystem)=>{
 如果你不太熟悉开发，但是有想要的功能，就在Github评论区中留言吧
 
 [https://github.com/royalknight56/vtron](https://github.com/royalknight56/vtron)`,
-
   });
-  setTimeout(()=>{
-    if(readySystem.isFirstRun){
-      readySystem.openFile('/C/Users/Desktop/使用教程.md')
+  setTimeout(() => {
+    if (readySystem.isFirstRun) {
+      readySystem.openFile("/C/Users/Desktop/使用教程.md");
     }
-  },1200)
-  localStorage.getItem('user') || localStorage.setItem('user',new Date().getTime().toString());
-  readySystem.registerFileOpener('.md',(path,content)=>{
+  }, 1200);
+  localStorage.getItem("user") ||
+    localStorage.setItem("user", new Date().getTime().toString());
+  readySystem.registerFileOpener(".md", (path, content) => {
     new BrowserWindow({
       title: path,
-      icon: "file",
+      icon: markdownicon,
       width: 800,
       height: 600,
       resizable: true,
       center: true,
       content: MarkDown,
-      config:{
+      config: {
         path: path,
-        content: content
-      }
-    }).show()
+        content: content,
+      },
+    }).show();
   });
-  readySystem.registerFileOpener('.ppt',(path,content)=>{
+  readySystem.registerFileOpener(".ppt", (path, content) => {
     new BrowserWindow({
       title: path,
-      icon: "file",
+      icon: ppticon,
       width: 800,
       height: 600,
       resizable: true,
       center: true,
       content: PPT,
-      config:{
+      config: {
         path: path,
-        content: content
-      }
-    }).show()
-  })
-})
+        content: content,
+      },
+    }).show();
+  });
+});
 function addListToDesktop(list: typeof desktopConfig) {
-  let res:any[] = [];
+  let res: any[] = [];
   list.forEach((item) => {
     res.push({
       name: item.title,
@@ -135,26 +142,26 @@ function addListToDesktop(list: typeof desktopConfig) {
         height: item.height,
         resizable: item.resizable,
         center: item.center,
-        content: item.content
-      }
-    })
-  })
+        content: item.content,
+      },
+    });
+  });
   return res;
 }
 
-setTimeout(()=>{
-  fetch('https://myim.online:3100/api/visit', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            user:localStorage.getItem('user'),
-            type: 'view',
-            content:new Date().toLocaleString() + ' ' + "Vtron" + ' ' + document.referrer
-        })
-    })
-},1000)
+setTimeout(() => {
+  fetch("https://myim.online:3100/api/visit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user: localStorage.getItem("user"),
+      type: "view",
+      content: document.referrer,
+    }),
+  });
+}, 1000);
 </script>
 
 <style>
