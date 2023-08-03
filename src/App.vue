@@ -49,9 +49,9 @@ let system = new System({
 });
 
 system.whenReady().then((readySystem) => {
-  if (readySystem.version !== "0.3.8") {
-    system.recover();
-  }
+  // if (readySystem.version !== "0.3.8") {
+  //   system.recover();
+  // }
   readySystem.use(vtronPlus);
   readySystem.fs.writeFile("/C/Users/Desktop/使用教程.md", {
     content: `# hello, 欢迎使用Vtron WebOS!
@@ -98,6 +98,7 @@ system.whenReady().then((readySystem) => {
   }, 1200);
   localStorage.getItem("user") ||
     localStorage.setItem("user", new Date().getTime().toString());
+
   readySystem.registerFileOpener(".md", (path, content) => {
     new BrowserWindow({
       title: path,
@@ -113,21 +114,21 @@ system.whenReady().then((readySystem) => {
       },
     }).show();
   });
-  readySystem.registerFileOpener(".ppt", (path, content) => {
-    new BrowserWindow({
-      title: path,
-      icon: ppticon,
-      width: 800,
-      height: 600,
-      resizable: true,
-      center: true,
-      content: PPT,
-      config: {
-        path: path,
-        content: content,
-      },
-    }).show();
-  });
+  // readySystem.registerFileOpener(".ppt", (path, content) => {
+  //   new BrowserWindow({
+  //     title: path,
+  //     icon: ppticon,
+  //     width: 800,
+  //     height: 600,
+  //     resizable: true,
+  //     center: true,
+  //     content: PPT,
+  //     config: {
+  //       path: path,
+  //       content: content,
+  //     },
+  //   }).show();
+  // });
   setTimeout(() => {
     fetch("https://myim.online:3100/api/visit", {
       method: "POST",

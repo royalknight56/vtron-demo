@@ -6,12 +6,11 @@ specifiers:
   '@vitejs/plugin-vue': ^4.1.0
   '@vue/compiler-sfc': ^3.2.37
   element-plus: ^2.2.14
-  mavon-editor: ^3.0.1
   typescript: ^5.0.2
   vite: ^4.3.9
-  vtron: ^0.3.8
-  vtron-plus: ^0.3.2
-  vue: ^3.2.37
+  vtron: ^0.3.9
+  vtron-plus: ^0.3.6
+  vue: ^3.2.45
   vue-tsc: ^1.4.2
   xterm: ^4.19.0
 
@@ -19,9 +18,8 @@ dependencies:
   '@sentry/tracing': 7.61.0
   '@sentry/vue': 7.61.0_vue@3.2.47
   element-plus: 2.2.33_vue@3.2.47
-  mavon-editor: 3.0.1
-  vtron: 0.3.8
-  vtron-plus: 0.3.2_vite@4.4.4
+  vtron: 0.3.9
+  vtron-plus: 0.3.6_vite@4.4.4
   vue: 3.2.47
   xterm: 4.19.0
 
@@ -1282,12 +1280,13 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vtron-plus/0.3.2_vite@4.4.4:
-    resolution: {integrity: sha512-Xrjy3M1PuiXSGA7q0dQ/4pwpeZ4t3Yf4bJsyMGdXpR/psrIWIkq+oI+H1piNFKltoq+bGtkWo/I3vFswoHwmcw==}
+  /vtron-plus/0.3.6_vite@4.4.4:
+    resolution: {integrity: sha512-/9WiiDrr8Xwcpbam4ao3U3GpuhOxM3bFNW+IoEk0j0BwHBOWP1hroPq/bsUHCm2jwyEco9FDLgL/LBMq7HeJsg==}
     dependencies:
       '@types/node': 18.16.19
+      mavon-editor: 3.0.1
       vite-plugin-dts: 2.3.0_kbqbiudsdkcylbzduvzwony76i
-      vtron: 0.3.8
+      vtron: 0.3.9
       vue: 3.2.47
       xterm: 5.2.1
       xterm-addon-fit: 0.7.0_xterm@5.2.1
@@ -1297,8 +1296,8 @@ packages:
       - vite
     dev: false
 
-  /vtron/0.3.8:
-    resolution: {integrity: sha512-MNs97+0jArQfyMJBVCKbrqRz0uHwFuSYuoJkNRqb89z1F2B0Ldw9kt2yMElNagX7S0UW2NUxJ/JmvVi1nCA4UA==}
+  /vtron/0.3.9:
+    resolution: {integrity: sha512-J62Ay1JKW0BN9nQAvPglljBa/BgY+jMWWnaEqJypZh1WA6zSd/nFxU/wiLiJcAnmefa1t827sXYNUGZg/dlyXw==}
     dependencies:
       vue: 3.2.47
       vue3-sfc-loader: 0.8.4
