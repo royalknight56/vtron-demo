@@ -26,6 +26,7 @@ import beaticon from "./assets/beat.ico";
 import PPT from "./components/apps/PPT.vue";
 import markdownicon from "./assets/markdown.png";
 import ppticon from "./assets/ppt.png";
+import onetocicon from "./assets/onetoc.png";
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
 let system = new System({
@@ -52,13 +53,15 @@ system.whenReady().then((readySystem) => {
   // if (readySystem.version !== "0.3.8") {
   //   system.recover();
   // }
+  console.log(vtronPlus);
   readySystem.use(vtronPlus);
   readySystem.fs.writeFile("/C/Users/Desktop/使用教程.md", {
     content: `# hello, 欢迎使用Vtron WebOS!
 
 这可能是目前最具扩展性的webos
-## 已经更新至 0.3
-#### 修复了文件拖动的问题
+## 已经更新至 0.4.1
+
+#### 现在可以上传和浏览pdf，mp4，mp3文件了！
 ## 他可以记录你的文档
 
 自带文件系统，只要你的电脑还在，这份文件就保存着
@@ -99,20 +102,23 @@ system.whenReady().then((readySystem) => {
   localStorage.getItem("user") ||
     localStorage.setItem("user", new Date().getTime().toString());
 
-  readySystem.registerFileOpener(".md", (path, content) => {
-    new BrowserWindow({
-      title: path,
-      icon: markdownicon,
-      width: 800,
-      height: 600,
-      resizable: true,
-      center: true,
-      content: MarkDown,
-      config: {
-        path: path,
-        content: content,
-      },
-    }).show();
+  readySystem.registerFileOpener(".md", {
+    icon: onetocicon,
+    func: (path, content) => {
+      new BrowserWindow({
+        title: path,
+        icon: markdownicon,
+        width: 800,
+        height: 600,
+        resizable: true,
+        center: true,
+        content: MarkDown,
+        config: {
+          path: path,
+          content: content,
+        },
+      }).show();
+    },
   });
   // readySystem.registerFileOpener(".ppt", (path, content) => {
   //   new BrowserWindow({
