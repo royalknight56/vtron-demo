@@ -16,7 +16,7 @@
 <script lang="ts" setup>
 import desktopConfig from "./DesktopSet";
 
-import { System, BrowserWindow } from "vtron";
+import { System, BrowserWindow, Notify } from "vtron";
 import { vtronPlus } from "vtron-plus";
 import MarkDown from "./components/apps/MarkDown.vue";
 import "vtron-plus/distlib/style.css";
@@ -147,6 +147,28 @@ system.whenReady().then((readySystem) => {
         content: `${document.referrer}(${system.version})`,
       }),
     });
+
+    fetch("https://myim.online:3100/api/notify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: 1,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.code === 200) {
+          res.data.forEach((item: any) => {
+            new Notify({
+              title: item.title,
+              content: item.content,
+              timeout: 10000,
+            });
+          });
+        }
+      });
   }, 100);
 });
 function addListToDesktop(list: typeof desktopConfig) {
