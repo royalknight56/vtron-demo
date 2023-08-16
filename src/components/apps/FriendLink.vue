@@ -30,6 +30,10 @@ const FriendLinks = [
     {
         name: 'Vtron-template',
         url: 'https://github.com/royalknight56/vtron-template'
+    },
+    {
+        name: 'tol.vip',
+        url: 'https://tol.vip/'
     }
 ]
 </script>
