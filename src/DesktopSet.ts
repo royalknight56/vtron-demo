@@ -7,6 +7,7 @@ import ppticon from "./assets/ppt.png";
 import baidumapicon from "./assets/baidumap.png";
 import markdownicon from "./assets/markdown.png";
 import friendLinkicon from "./assets/friendLink.png";
+import bird1icon from "./assets/bird1.png";
 
 import GitStars from "./components/apps/GitStars.vue";
 import GotoReadMe from "./components/apps/GotoReadMe.vue";
@@ -69,6 +70,15 @@ let config = [
     height: 400,
     center: true,
     content: FriendLink,
+    resizable: true,
+  },
+  {
+    title: "压扁小鸟",
+    icon: bird1icon,
+    width: 800,
+    height: 600,
+    center: true,
+    content: "https://static.myim.online/yabird/",
     resizable: true,
   },
   // {
