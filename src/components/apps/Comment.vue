@@ -29,7 +29,7 @@ let browserWindow = <BrowserWindow>inject('browserWindow')
 
 function submit() {
     state.value = 'loading';
-    fetch('http://myim.online:3100/api/comment', {
+    fetch('https://myim.online:3100/api/comment', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
