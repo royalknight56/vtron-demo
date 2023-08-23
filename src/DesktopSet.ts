@@ -27,15 +27,15 @@ let config = [
     content: "https://github1s.com/",
     resizable: true,
   },
-  {
-    title: "咕噜Todo",
-    icon: todoappicon,
-    width: 800,
-    height: 600,
-    center: true,
-    content: "https://groupgroupgroup.group",
-    resizable: true,
-  },
+  // {
+  //   title: "咕噜Todo",
+  //   icon: todoappicon,
+  //   width: 800,
+  //   height: 600,
+  //   center: true,
+  //   content: "https://groupgroupgroup.group",
+  //   resizable: true,
+  // },
   {
     title: "MarkDown",
     icon: markdownicon,
@@ -79,6 +79,7 @@ let config = [
     height: 600,
     center: true,
     content: "https://static.myim.online/yabird/",
+    backgroundColor: "#71c5cf",
     resizable: true,
   },
   // {

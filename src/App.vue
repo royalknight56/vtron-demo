@@ -59,9 +59,10 @@ system.whenReady().then((readySystem) => {
     content: `# hello, 欢迎使用Vtron WebOS!
 
 这可能是目前最具扩展性的webos
-## 已经更新至 0.4.3
+## 已经更新至 0.4.4
 
 #### 更新之后建议开始菜单->恢复。请自己保留重要数据
+#### 0.4.4: 商店优化
 #### 0.4.3: 压扁小鸟！！
 #### 0.4.1: 可以上传和浏览pdf，mp4，mp3文件了！
 ## 他可以记录你的文档
@@ -186,6 +187,7 @@ function addListToDesktop(list: typeof desktopConfig) {
         height: item.height,
         resizable: item.resizable,
         center: item.center,
+        backgroundColor: item.backgroundColor,
         content: item.content,
       },
     });
