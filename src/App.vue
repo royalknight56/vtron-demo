@@ -58,9 +58,11 @@ system.whenReady().then((readySystem) => {
     content: `# hello, 欢迎使用Vtron WebOS!
 
 这可能是目前最具扩展性的webos
-## 已经更新至 0.4.4
+## 已经更新至 0.4.5
 
 #### 更新之后建议开始菜单->恢复。请自己保留重要数据
+
+#### 0.4.5: vtron-plus更新，减少了本体的包体积
 #### 0.4.4: vtron-plus更新，支持查看docx和xlsx文件了
 #### 0.4.4: 商店优化
 #### 0.4.3: 压扁小鸟！！
