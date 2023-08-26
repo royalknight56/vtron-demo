@@ -50,10 +50,9 @@ let system = new System({
 });
 
 system.whenReady().then((readySystem) => {
-  // if (readySystem.version !== "0.3.8") {
+  // if (readySystem.version !== "0.4.4") {
   //   system.recover();
   // }
-  console.log(vtronPlus);
   readySystem.use(vtronPlus);
   readySystem.fs.writeFile("/C/Users/Desktop/使用教程.md", {
     content: `# hello, 欢迎使用Vtron WebOS!
@@ -62,6 +61,7 @@ system.whenReady().then((readySystem) => {
 ## 已经更新至 0.4.4
 
 #### 更新之后建议开始菜单->恢复。请自己保留重要数据
+#### 0.4.4: vtron-plus更新，支持查看docx和xlsx文件了
 #### 0.4.4: 商店优化
 #### 0.4.3: 压扁小鸟！！
 #### 0.4.1: 可以上传和浏览pdf，mp4，mp3文件了！
