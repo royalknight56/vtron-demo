@@ -149,7 +149,7 @@ system.whenReady().then((readySystem) => {
       body: JSON.stringify({
         user: localStorage.getItem("user"),
         type: "view",
-        content: `${document.referrer}(${system.version})`,
+        content: `${document.referrer}`,
       }),
     });
 
