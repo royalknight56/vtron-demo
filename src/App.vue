@@ -58,15 +58,10 @@ system.whenReady().then((readySystem) => {
     content: `# hello, 欢迎使用Vtron WebOS!
 
 这可能是目前最具扩展性的webos
-## 已经更新至 0.4.5
+## 已经更新至 ${readySystem.version}
 
 #### 更新之后建议开始菜单->恢复。请自己保留重要数据
 
-#### 0.4.5: vtron-plus更新，减少了本体的包体积
-#### 0.4.4: vtron-plus更新，支持查看docx和xlsx文件了
-#### 0.4.4: 商店优化
-#### 0.4.3: 压扁小鸟！！
-#### 0.4.1: 可以上传和浏览pdf，mp4，mp3文件了！
 ## 他可以记录你的文档
 
 自带文件系统，只要你的电脑还在，这份文件就保存着
