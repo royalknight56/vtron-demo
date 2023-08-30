@@ -27,6 +27,7 @@ import PPT from "./components/apps/PPT.vue";
 import markdownicon from "./assets/markdown.png";
 import ppticon from "./assets/ppt.png";
 import onetocicon from "./assets/onetoc.png";
+import OpenSource from "./components/apps/OpenSource.vue";
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
 let system = new System({
@@ -41,6 +42,20 @@ let system = new System({
         height: 400,
         center: true,
         content: CommentVue,
+        resizable: false,
+      },
+    },
+  ],
+  menulist: [
+    {
+      name: "开源项目",
+      icon: beaticon,
+      window: {
+        title: "开源项目",
+        width: 400,
+        height: 200,
+        center: true,
+        content: OpenSource,
         resizable: false,
       },
     },
@@ -68,15 +83,16 @@ system.whenReady().then((readySystem) => {
 
 （不包括一些破坏性的操作）
 
+## 小彩蛋
+
+试着把图片,doc,pdf,xlsx拖拽到“此电脑”应用中，图片就能保存在这里
+
+
 ## 试试精彩的终端
 
 和linux一致的体验
 
 输入经典的命令，ls，cd，help，sh，甚至node
-
-## 小彩蛋
-
-试着把图片拖拽到“此电脑”应用中，图片就能保存在这里
 
 ## 万能的文件类型
 
