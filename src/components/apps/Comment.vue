@@ -31,7 +31,7 @@ function submit() {
   if (!user.value || !comment.value) {
     Dialog.showMessageBox({
       type: "error",
-      message: "请填写昵称或联系方式",
+      message: "请填写昵称或联系方式以及您的意见！",
     });
     return;
   }
