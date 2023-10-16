@@ -31,7 +31,21 @@ import OpenSource from "./components/apps/OpenSource.vue";
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
 let system = new System({
-  desktop: [...addListToDesktop(desktopConfig)],
+  desktop: [
+    {
+      name: "意见反馈",
+      icon: beaticon,
+      window: {
+        title: "意见反馈",
+        width: 400,
+        height: 400,
+        center: true,
+        content: CommentVue,
+        resizable: false,
+      },
+    },
+    ...addListToDesktop(desktopConfig),
+  ],
   magnet: [
     {
       name: "意见反馈",
