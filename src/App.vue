@@ -87,6 +87,9 @@ system.whenReady().then((readySystem) => {
     content: `# hello, 欢迎使用Vtron WebOS!
 
 这可能是目前最具扩展性的webos
+
+## 欢迎加入qq群 712921211
+
 ## 已经更新至 ${readySystem.version}
 
 #### 更新之后建议开始菜单->恢复。请自己保留重要数据
