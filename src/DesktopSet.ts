@@ -8,6 +8,7 @@ import baidumapicon from "./assets/baidumap.png";
 import markdownicon from "./assets/markdown.png";
 import friendLinkicon from "./assets/friendLink.png";
 import bird1icon from "./assets/bird1.png";
+// import kiometicon from "./assets/kiomet.webp";
 
 import GitStars from "./components/apps/GitStars.vue";
 import GotoReadMe from "./components/apps/GotoReadMe.vue";
@@ -82,6 +83,17 @@ let config = [
     backgroundColor: "#71c5cf",
     resizable: true,
   },
+  // {
+  //   title: "kiomet",
+  //   icon: kiometicon,
+  //   width: 800,
+  //   height: 600,
+  //   center: true,
+  //   content: "https://kiomet.com/",
+  //   backgroundColor: "#2b3948",
+  //   resizable: true,
+  // },
+
   // {
   //   title: "PPT",
   //   icon: ppticon,
