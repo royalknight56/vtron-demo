@@ -94,6 +94,13 @@ system.whenReady().then((readySystem) => {
 
 #### 更新之后建议开始菜单->恢复。请自己保留重要数据
 
+
+## NoteMd
+
+NoteMd是和vtron契合的笔记软件
+
+可以快捷的管理文档
+
 ## 他可以记录你的文档
 
 自带文件系统，只要你的电脑还在，这份文件就保存着
@@ -112,8 +119,6 @@ system.whenReady().then((readySystem) => {
 ## 万能的文件类型
 
 右键打开文件的属性，就能修改文件的名称
-
-把文件后缀改成 .md 之后，再打开试试！
 
 也可以使用ppt，markdown 应用创建新的文件
 
