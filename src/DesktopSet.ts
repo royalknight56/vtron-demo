@@ -8,12 +8,15 @@ import baidumapicon from "./assets/baidumap.png";
 import markdownicon from "./assets/markdown.png";
 import friendLinkicon from "./assets/friendLink.png";
 import bird1icon from "./assets/bird1.png";
+import signalicon from "./assets/signal.png";
+
 // import kiometicon from "./assets/kiomet.webp";
 
 import GitStars from "./components/apps/GitStars.vue";
 import GotoReadMe from "./components/apps/GotoReadMe.vue";
 import MarkDown from "./components/apps/MarkDown.vue";
 import FriendLink from "./components/apps/FriendLink.vue";
+import CreateUrl from "./components/apps/CreateUrl.vue";
 import PPT from "./components/apps/PPT.vue";
 
 import MusicVue from "./components/apps/Music.vue";
@@ -82,6 +85,16 @@ let config = [
     content: "https://static.myim.online/yabird/",
     backgroundColor: "#71c5cf",
     resizable: true,
+  },
+  {
+    title: "创建网络链接",
+    icon: signalicon,
+    width: 400,
+    height: 400,
+    center: true,
+    content: CreateUrl,
+    // backgroundColor: "#71c5cf",
+    resizable: false,
   },
   // {
   //   title: "kiomet",

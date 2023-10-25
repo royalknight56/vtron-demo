@@ -173,6 +173,7 @@ system.whenReady().then((readySystem) => {
   //   }).show();
   // });
   setTimeout(() => {
+    if (process.env.NODE_ENV === "development") return;
     fetch("https://myim.online:3100/api/visit", {
       method: "POST",
       headers: {
