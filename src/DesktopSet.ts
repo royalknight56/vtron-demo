@@ -17,6 +17,8 @@ import GotoReadMe from "./components/apps/GotoReadMe.vue";
 import MarkDown from "./components/apps/MarkDown.vue";
 import FriendLink from "./components/apps/FriendLink.vue";
 import CreateUrl from "./components/apps/CreateUrl.vue";
+import NoteMd from "./components/apps/NoteMd.vue";
+
 import PPT from "./components/apps/PPT.vue";
 
 import MusicVue from "./components/apps/Music.vue";
@@ -40,15 +42,15 @@ let config = [
   //   content: "https://groupgroupgroup.group",
   //   resizable: true,
   // },
-  {
-    title: "MarkDown",
-    icon: markdownicon,
-    width: 800,
-    height: 600,
-    center: true,
-    content: MarkDown,
-    resizable: true,
-  },
+  // {
+  //   title: "MarkDown",
+  //   icon: markdownicon,
+  //   width: 800,
+  //   height: 600,
+  //   center: true,
+  //   content: MarkDown,
+  //   resizable: true,
+  // },
   // {
   //     title: '音乐',
   //     icon: moonappicon,
@@ -84,6 +86,16 @@ let config = [
     center: true,
     content: "https://static.myim.online/yabird/",
     backgroundColor: "#71c5cf",
+    resizable: true,
+  },
+  {
+    title: "NoteMd",
+    icon: markdownicon,
+    width: 800,
+    height: 600,
+    center: true,
+    content: NoteMd,
+
     resizable: true,
   },
   {
