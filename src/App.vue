@@ -28,6 +28,9 @@ import markdownicon from "./assets/markdown.png";
 import ppticon from "./assets/ppt.png";
 import onetocicon from "./assets/onetoc.png";
 import OpenSource from "./components/apps/OpenSource.vue";
+
+import { mountWebdav } from "./hook/mountWebdav";
+import { mountOpener } from "./hook/mountOpener";
 // 在App中组织桌面图标
 // 先清空再添加，防止热更新加入多重图标
 let system = new System({
@@ -82,9 +85,11 @@ system.whenReady().then((readySystem) => {
   // if (readySystem.version !== "0.4.4") {
   //   system.recover();
   // }
+
   readySystem.use(vtronPlus);
-  readySystem.fs.writeFile("/C/Users/Desktop/使用教程.md", {
-    content: `# hello, 欢迎使用Vtron WebOS!
+  readySystem.fs.writeFile(
+    "/C/Users/Desktop/使用教程.md",
+    `# hello, 欢迎使用Vtron WebOS!
 
 这可能是目前最具扩展性的webos
 
@@ -134,16 +139,42 @@ NoteMd是和vtron契合的笔记软件
 
 如果你不太熟悉开发，但是有想要的功能，就在Github评论区中留言吧
 
-[https://github.com/royalknight56/vtron](https://github.com/royalknight56/vtron)`,
-  });
+[https://github.com/royalknight56/vtron](https://github.com/royalknight56/vtron)`
+  );
+
+  readySystem.fs.writeFile(
+    "/C/Users/Desktop/Webdav使用教程.md",
+    `# Webdav使用教程
+## 设置
+
+点击左下角开始菜单->设置->Webdav设置
+
+需要填写webdav的链接，用户名，密码
+
+推荐使用alist客户端
+
+挂载路径推荐写一级路径，如：/D
+
+挂载路径必须与webdav的文件夹相同
+
+填写好信息后，点击确定，重启
+    
+## 使用
+
+挂载成功后，可以在文件管理器（我的电脑）中看到挂载的文件夹
+    `
+  );
   setTimeout(() => {
     if (readySystem.isFirstRun) {
       readySystem.openFile("/C/Users/Desktop/使用教程.md");
     }
   }, 1200);
+
+  mountWebdav(system);
   localStorage.getItem("user") ||
     localStorage.setItem("user", new Date().getTime().toString());
 
+  mountOpener(system);
   readySystem.registerFileOpener(".md", {
     icon: onetocicon,
     func: (path, content) => {

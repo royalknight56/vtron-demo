@@ -24,6 +24,7 @@ import {
   BrowserWindow,
   Notify,
   VtronFile,
+  VtronFileWithoutContent,
   basename,
   join,
   useSystem,
@@ -43,9 +44,9 @@ function onTreeOpen(path?: string, isDirectory?: boolean) {
       return;
     }
 
-    sys.fs.stat(path).then((res) => {
+    sys.fs.readFile(path).then((res) => {
       if (res) {
-        value.value = res.content;
+        value.value = res;
       }
     });
   } else {
@@ -53,7 +54,7 @@ function onTreeOpen(path?: string, isDirectory?: boolean) {
   }
 }
 
-const rootFileList = ref<Array<VtronFile>>([]);
+const rootFileList = ref<Array<VtronFileWithoutContent>>([]);
 const random = ref(0);
 onMounted(async () => {
   refersh();
@@ -77,9 +78,7 @@ async function createMd() {
     return;
   }
   sys.fs
-    .writeFile(join(chosenTreePath.value, "Untitled.md"), {
-      content: "# hello, markdown!",
-    })
+    .writeFile(join(chosenTreePath.value, "Untitled.md"), "# hello, markdown!")
     .then((res) => {
       sys.fs
         .readdir(join(sys._options.userLocation || "", "Note"))
@@ -111,16 +110,12 @@ function save(markdown: string, html: string) {
   if (!path) {
     path = "/C/Users/Note/Untitled.md";
   }
-  sys?.fs
-    .writeFile(path, {
-      content: markdown,
-    })
-    .then((res) => {
-      new Notify({
-        title: "保存成功",
-        content: "文件已保存",
-      });
+  sys?.fs.writeFile(path, markdown).then((res) => {
+    new Notify({
+      title: "保存成功",
+      content: "文件已保存",
     });
+  });
 }
 </script>
 <style scoped>

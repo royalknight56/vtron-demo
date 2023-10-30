@@ -56,11 +56,17 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { VtronFile, useSystem, basename, join } from "vtron";
+import {
+  VtronFile,
+  useSystem,
+  basename,
+  join,
+  VtronFileWithoutContent,
+} from "vtron";
 import { onMounted, ref } from "vue";
 
 const sys = useSystem();
-type FileWithOpen = VtronFile & {
+type FileWithOpen = VtronFileWithoutContent & {
   isOpen?: boolean;
   subFileList?: FileWithOpen[];
 };
