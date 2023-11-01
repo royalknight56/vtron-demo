@@ -1,43 +1,64 @@
 <template>
   <div class="set">
-    <div class="set-title">设置webdav路径</div>
+    <div class="set-title">设置webdav</div>
 
     <div class="set-item">
-      <div class="label">Url：</div>
+      <div class="label">开启webdav：</div>
       <div class="content">
-        <WinInput type="text" v-model="webdavUrl" />
+        <WinSelect
+          v-model="isEnableWebdav"
+          :options="[
+            {
+              label: '关闭',
+              value: 0,
+            },
+            {
+              label: '开启',
+              value: 1,
+            },
+          ]"
+          :placeholder="'please.select'"
+        />
       </div>
     </div>
-    <div class="set-item">
-      <div class="label">用户名：</div>
-      <div class="content">
-        <WinInput v-model="webdavUsername" />
+    <template v-if="isEnableWebdav === 1">
+      <div class="set-item">
+        <div class="label">Url：</div>
+        <div class="content">
+          <WinInput type="text" v-model="webdavUrl" />
+        </div>
       </div>
-    </div>
-    <div class="set-item">
-      <div class="label">密码：</div>
-      <div class="content">
-        <WinInput v-model="webdavPassword" />
+      <div class="set-item">
+        <div class="label">用户名：</div>
+        <div class="content">
+          <WinInput v-model="webdavUsername" />
+        </div>
       </div>
-    </div>
+      <div class="set-item">
+        <div class="label">密码：</div>
+        <div class="content">
+          <WinInput v-model="webdavPassword" />
+        </div>
+      </div>
 
-    <div class="set-item">
-      <div class="label">挂载路径：</div>
-      <div class="content">
-        <WinInput v-model="webdavPath" />
+      <div class="set-item">
+        <div class="label">挂载路径：</div>
+        <div class="content">
+          <WinInput v-model="webdavPath" />
+        </div>
       </div>
-    </div>
+    </template>
 
     <div class="set-item">
       <div class="label"></div>
-      <div class="content"></div>
+      <div class="content">
+        <WinButtonVue v-show="!loading" @click="click">确定</WinButtonVue>
+      </div>
     </div>
-
-    <WinButtonVue v-show="!loading" @click="click">确定</WinButtonVue>
   </div>
 </template>
 <script setup lang="ts">
-import { Dialog, WinButtonVue, WinInput } from "vtron";
+import { Dialog, WinButtonVue, WinInput, WinSelect } from "vtron";
 import { inject, ref } from "vue";
 import { AuthType, FileStat, createClient } from "webdav";
 
@@ -48,8 +69,23 @@ const webdavPassword = ref(localStorage.getItem("webdav_password") || "");
 
 const loading = ref(false);
 
+const isEnableWebdav = ref(1);
+
 function click() {
   loading.value = true;
+  if (isEnableWebdav.value === 0) {
+    localStorage.setItem("webdav_url", "");
+    localStorage.setItem("webdav_path", "");
+    localStorage.setItem("webdav_username", "");
+    localStorage.setItem("webdav_password", "");
+    loading.value = false;
+    Dialog.showMessageBox({
+      type: "info",
+      title: "提示",
+      message: "设置成功,请重新启动",
+    });
+    return;
+  }
   if (
     !webdavUrl.value ||
     !webdavPath.value ||
@@ -116,6 +152,7 @@ function click() {
 .set-title {
   font-size: 20px;
   font-weight: bold;
+  margin-bottom: 40px;
 }
 .set-item {
   display: flex;
@@ -123,7 +160,8 @@ function click() {
   gap: 10px;
 }
 .label {
-  width: 80px;
+  width: 100px;
+  font-size: 14px;
   text-align: right;
 }
 .content {
