@@ -1,6 +1,7 @@
 <template>
   <div class="set">
-    设置webdav路径
+    <div class="set-title">设置webdav路径</div>
+
     <div class="set-item">
       <div class="label">Url：</div>
       <div class="content">
@@ -32,28 +33,75 @@
       <div class="content"></div>
     </div>
 
-    <WinButtonVue @click="click">确定</WinButtonVue>
+    <WinButtonVue v-show="!loading" @click="click">确定</WinButtonVue>
   </div>
 </template>
 <script setup lang="ts">
 import { Dialog, WinButtonVue, WinInput } from "vtron";
 import { inject, ref } from "vue";
+import { AuthType, FileStat, createClient } from "webdav";
 
 const webdavUrl = ref(localStorage.getItem("webdav_url") || "");
 const webdavPath = ref(localStorage.getItem("webdav_path") || "");
 const webdavUsername = ref(localStorage.getItem("webdav_username") || "");
 const webdavPassword = ref(localStorage.getItem("webdav_password") || "");
 
+const loading = ref(false);
+
 function click() {
-  localStorage.setItem("webdav_url", webdavUrl.value || "");
-  localStorage.setItem("webdav_path", webdavPath.value || "");
-  localStorage.setItem("webdav_username", webdavUsername.value || "");
-  localStorage.setItem("webdav_password", webdavPassword.value || "");
-  Dialog.showMessageBox({
-    type: "info",
-    title: "提示",
-    message: "设置成功,请重新启动",
+  loading.value = true;
+  if (
+    !webdavUrl.value ||
+    !webdavPath.value ||
+    !webdavUsername.value ||
+    !webdavPassword.value
+  ) {
+    loading.value = false;
+    Dialog.showMessageBox({
+      type: "error",
+      title: "提示",
+      message: "请填写完整",
+    });
+    return;
+  }
+  const client = createClient(webdavUrl.value, {
+    // authType: AuthType.Digest,
+    username: webdavUsername.value,
+    password: webdavPassword.value,
   });
+  client
+    .stat(webdavPath.value)
+    .then((stattemp) => {
+      let stat = stattemp as FileStat;
+      if (stat?.type !== "directory") {
+        Dialog.showMessageBox({
+          type: "error",
+          title: "提示",
+          message: "挂载路径不是文件夹",
+        });
+        loading.value = false;
+        return;
+      }
+      localStorage.setItem("webdav_url", webdavUrl.value || "");
+      localStorage.setItem("webdav_path", webdavPath.value || "");
+      localStorage.setItem("webdav_username", webdavUsername.value || "");
+      localStorage.setItem("webdav_password", webdavPassword.value || "");
+      loading.value = false;
+      Dialog.showMessageBox({
+        type: "info",
+        title: "提示",
+        message: "设置成功,请重新启动",
+      });
+    })
+    .catch((err) => {
+      loading.value = false;
+
+      Dialog.showMessageBox({
+        type: "error",
+        title: "提示",
+        message: "webdav连接失败，请重试",
+      });
+    });
 }
 </script>
 <style scoped>
@@ -64,6 +112,10 @@ function click() {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.set-title {
+  font-size: 20px;
+  font-weight: bold;
 }
 .set-item {
   display: flex;
