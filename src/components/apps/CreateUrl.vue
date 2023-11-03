@@ -37,9 +37,7 @@ function next() {
     sys?.fs
       .writeFile(
         join(sys._options.userLocation || "", "Desktop", name.value + ".url"),
-        {
-          content: `link::url::${link.value}::${link.value + "/favicon.ico"}`,
-        }
+        `link::url::${link.value}::${link.value + "/favicon.ico"}`
       )
       .then(async () => {
         await Dialog.showMessageBox({

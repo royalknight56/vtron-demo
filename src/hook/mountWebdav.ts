@@ -87,34 +87,44 @@ export function mountWebdav(system: System) {
         return "";
       },
       async unlink(path) {
+        system.emitError("webdav 不支持删除");
         return Promise.reject("webdav 不支持删除");
       },
       async rename(oldPath, newPath) {
+        system.emitError("webdav 不支持重命名");
         return Promise.reject("webdav 不支持重命名");
       },
       async rmdir(path) {
+        system.emitError("webdav 不支持删除");
         return Promise.reject("webdav 不支持删除");
       },
       async mkdir(path) {
+        system.emitError("webdav 不支持创建文件夹");
         return Promise.reject("webdav 不支持创建文件夹");
       },
       async copyFile(src, dest) {
+        system.emitError("webdav 不支持复制");
         return Promise.reject("webdav 不支持复制");
       },
       async writeFile(path, content) {
+        system.emitError("webdav 不支持写入");
         return Promise.reject("webdav 不支持写入");
       },
       async appendFile(path, content) {
+        system.emitError("webdav 不支持写入");
         return Promise.reject("webdav 不支持写入");
       },
       serializeFileSystem() {
+        system.emitError("webdav 不支持序列化");
         return Promise.reject("webdav 不支持序列化");
       },
       deserializeFileSystem(files) {
+        system.emitError("webdav 不支持序列化");
         return Promise.reject("webdav 不支持序列化");
       },
       removeFileSystem() {
-        return Promise.reject("webdav 不支持序列化");
+        system.emitError("webdav 不支持清空");
+        return Promise.reject("webdav 不支持清空");
       },
       registerWatcher(path, callback) {},
     });
