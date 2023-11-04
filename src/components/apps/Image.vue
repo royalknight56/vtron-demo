@@ -8,33 +8,44 @@
   </div>
 </template>
 <script setup lang="ts">
-import { BrowserWindow, WinLoadingVue } from "vtron";
 import { inject, onMounted, ref } from "vue";
 
-let window: BrowserWindow | undefined = inject("browserWindow");
+import { BrowserWindow, System, VtronFileSystem, WinLoadingVue } from "vtron";
+
+const browserWindow: BrowserWindow | undefined = inject("browserWindow");
+const sys = inject<System>("system")!;
 const content = ref("");
 
 onMounted(() => {
-  const path = window?.config.content;
+  const path = browserWindow?.config.content;
 
+  if (sys.fs instanceof VtronFileSystem) {
+    sys.fs.checkVolumePath(path);
+  }
   if (path?.startsWith("http")) {
-    const cred = path.split("@")[0].split("//")[1];
-    const url = path.split("//")[0] + "//" + path.split("@")[1];
-    let headers = new Headers({
-      Authorization: `Basic ${btoa(cred)}`,
-    });
-    fetch(url, {
-      headers: headers,
-    }).then((res) => {
-      res.blob().then((blob) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(blob);
-        reader.onload = function (e) {
-          content.value = e.target?.result as string;
-        };
+    // http://admin:admin@example.com:5244/dav/a.jpg to admin:admin
+    const url = new URL(path);
+    const cred = url.password ? `${url.username}:${url.password}` : "";
+    if (cred) {
+      const resource = url.href.replace(`${url.username}:${url.password}@`, "");
+      const headers = new Headers({
+        Authorization: `Basic ${btoa(cred)}`,
       });
-    });
-    return;
+      fetch(resource, {
+        headers: headers,
+      }).then((res) => {
+        res.blob().then((blob) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(blob);
+          reader.onload = function (e) {
+            content.value = e.target?.result as string;
+          };
+        });
+      });
+      return;
+    } else {
+      content.value = path;
+    }
   } else {
     content.value = path;
     return;
